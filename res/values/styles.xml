@@ -1,0 +1,39 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">#5ddcb4</item>
+        <item name="android:colorControlHighlight">#3381bbff</item>
+        <item name="android:colorButtonNormal">#202e41</item>
+        <item name="android:textColorPrimary">#e9eff7</item>
+        <item name="android:textColorSecondary">#a5b4c7</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">#101723</item>
+        <item name="android:alertDialogTheme">@style/WorkspaceDialog</item>
+        <item name="android:actionModeBackground">@color/workspace_header</item>
+    </style>
+    <style name="WorkspaceDialog" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">#5ddcb4</item>
+        <item name="android:colorBackground">#182232</item>
+        <item name="android:colorBackgroundFloating">#182232</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="android:textColorPrimary">#e9eff7</item>
+        <item name="android:textColorSecondary">#a5b4c7</item>
+        <item name="android:buttonBarButtonStyle">@style/DialogAction</item>
+    </style>
+    <style name="DialogAction" parent="android:style/Widget.Material.Button.Borderless">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">#5ddcb4</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="DikteCommandTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:colorAccent">#5ddcb4</item>
+    </style>
+</resources>

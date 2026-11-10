@@ -1,0 +1,8 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="dikte-toggle" android:enabled="true" android:icon="@drawable/app_icon" android:shortcutShortLabel="@string/dikte_toggle">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.ayrvokan.widgets" android:targetClass="com.ayrvokan.widgets.DikteCommandActivity" android:data="ayrvokan://dikte/toggle" />
+    </shortcut>
+    <shortcut android:shortcutId="dikte-cancel" android:enabled="true" android:icon="@drawable/app_icon" android:shortcutShortLabel="@string/dikte_cancel">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.ayrvokan.widgets" android:targetClass="com.ayrvokan.widgets.DikteCommandActivity" android:data="ayrvokan://dikte/cancel" />
+    </shortcut>
+</shortcuts>

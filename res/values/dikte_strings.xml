@@ -1,0 +1,6 @@
+<resources>
+    <string name="dikte_accessibility_label">Dikte · Kısayol ve yazma</string>
+    <string name="dikte_accessibility_description">Orijinal Dikte’yi kısayol veya erişilebilirlik düğmesiyle başlatır. Groq ile çevrilen metni seçili Android yazı alanına ekler. Varsayılan: Ctrl+Space başlat/durdur; Ctrl+Alt+Space iptal.</string>
+    <string name="dikte_toggle">Dikte başlat / durdur</string>
+    <string name="dikte_cancel">Dikte iptal</string>
+</resources>
