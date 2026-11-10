@@ -1,0 +1,14 @@
+{
+  "schema": "ayrvokan.widget/1",
+  "id": "vekil-kaan",
+  "title": "Vekil Kaan",
+  "version": "0.3.0",
+  "entry": "builtin:vekil",
+  "runtime": "standalone-native-rust-dual-agent",
+  "persistent": true,
+  "default": true,
+  "minimumSizeDp": {
+    "width": 360,
+    "height": 400
+  }
+}

@@ -1,0 +1,1 @@
+{"version": "0.2.1", "sha256": "b6716a9948e1d31360b391d6c804f946c329f1df339c53d4de893828f805b7de", "tool_dispatch": "At finalized function arguments, before response completion", "mcp_transport": "Native Rust HTTP, direct native controller for game inputs", "live_observations": "Independent native JSONL reader; no observation requirement on controls"}

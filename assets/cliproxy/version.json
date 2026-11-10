@@ -1,0 +1,9 @@
+{
+  "version": "8.0.60",
+  "architecture": "linux-aarch64",
+  "sha256": "79806c610d8495d6aad6cc147b21e2b67880cf2d8a0c5314d1b7b937f8e7068a",
+  "panel_version": "1.27.3",
+  "panel_sha256": "14d3f48af2294f8bf65cc9d2d92eb9a477b47a2fb38a26f820debf6801a05bc9",
+  "release": "https://github.com/router-for-me/CLIProxyAPI/releases/tag/v8.0.60",
+  "panel_url": "https://github.com/router-for-me/Cli-Proxy-API-Management-Center/releases/download/v1.27.3/management.html"
+}

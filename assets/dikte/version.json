@@ -1,0 +1,20 @@
+{
+  "upstream": "yusufipk/dikte",
+  "version": "2.4.0",
+  "commit": "8d40d6686e8b549c87ae0c34db4b3690311e6d3a",
+  "sha256": "bff6a96084249530a3ce2302440294b06960015dc517d40d19d9d91bb18b33f3",
+  "speech_provider": "Groq",
+  "speech_model": "whisper-large-v3",
+  "offline_recognition": false,
+  "android_recognition": false,
+  "application": "Original unmodified Dikte app.py, HomeWindow and SettingsWindow",
+  "presentation": "Actual Linux Qt application on Xvnc, embedded via unmodified noVNC",
+  "adapters": "Android PCM microphone, global accessibility shortcuts, Android text insertion, original Linux clipboard and display",
+  "desktop_runtime_sha256": "22df8695beb086945b9adb03c668888d5398eed8b24f11f9ad3ae93c38d7bb3a",
+  "android_commands": [
+    "ayrvokan://dikte/toggle",
+    "ayrvokan://dikte/stop",
+    "ayrvokan://dikte/cancel",
+    "ayrvokan://dikte/pause"
+  ]
+}

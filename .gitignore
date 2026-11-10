@@ -1,13 +1,1 @@
-assets/
-build/
-dist/
-evidence/
-lib/
-retired/
 tools/
-vendor/
-SESSION.md
-*.apk
-*.idsig
-*.jks
-*.keystore

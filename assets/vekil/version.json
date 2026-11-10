@@ -1,0 +1,12 @@
+{
+  "version": "0.3.0",
+  "implementation": "standalone-native-rust-dual-agent",
+  "sha256": "075eae63b0dde97c5591a65e2ffbd6b2d5faef54f85dd2076c221e085b9200b1",
+  "home": "/root/.vekil-kaan",
+  "directives": "/root/.vekil-kaan/directives",
+  "backend": "CLIProxyAPI",
+  "transport": "native-http-chat-completions",
+  "rag": "native-rust",
+  "embedding": "EmbeddingGemma-2 270M INT4, native LiteRT-LM 0.18.1, 768d",
+  "coordination": "Independent model actors, owned pulses, shared FIFO tools, persistent checkpoints and recovery/resync"
+}
