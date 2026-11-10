@@ -1,0 +1,84 @@
+name: Build NOMone Touch APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - linux-runtime-rework
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nomone-touch-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      APKTOOL_VERSION: "3.0.3"
+      APKTOOL_SHA256: dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423
+      ANDROID_BUILD_TOOLS: "35.0.0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install build tools
+        run: |
+          mkdir -p "$RUNNER_TEMP/apktool"
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/apktool/apktool.jar" "https://github.com/iBotPeaches/Apktool/releases/download/v${APKTOOL_VERSION}/apktool_${APKTOOL_VERSION}.jar"
+          printf '%s  %s\n' "$APKTOOL_SHA256" "$RUNNER_TEMP/apktool/apktool.jar" | sha256sum --check --strict
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;${ANDROID_BUILD_TOOLS}"
+
+      - name: Build unsigned APK
+        run: |
+          mkdir -p dist
+          java -jar "$RUNNER_TEMP/apktool/apktool.jar" build . --output dist/nomone-touch-unsigned.apk
+
+      - name: Configure signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          CONFIGURED_STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          CONFIGURED_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          CONFIGURED_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/signing"
+          keystore="$RUNNER_TEMP/signing/nomone-touch.jks"
+          store_password="${CONFIGURED_STORE_PASSWORD:-android}"
+          key_password="${CONFIGURED_KEY_PASSWORD:-$store_password}"
+          key_alias="${CONFIGURED_KEY_ALIAS:-nomonetouch}"
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$keystore"
+          else
+            keytool -genkeypair -keystore "$keystore" -storetype JKS -storepass "$store_password" -keypass "$key_password" -alias "$key_alias" -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=NOMone Touch,OU=Ayrvokan,O=Ayrvokan,L=Brussels,C=BE"
+          fi
+          printf 'APK_KEYSTORE=%s\n' "$keystore" >> "$GITHUB_ENV"
+          printf 'APK_STORE_PASSWORD=%s\n' "$store_password" >> "$GITHUB_ENV"
+          printf 'APK_KEY_PASSWORD=%s\n' "$key_password" >> "$GITHUB_ENV"
+          printf 'APK_KEY_ALIAS=%s\n' "$key_alias" >> "$GITHUB_ENV"
+
+      - name: Align and sign APK
+        run: |
+          build_tools="$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS"
+          "$build_tools/zipalign" -f -p 4 dist/nomone-touch-unsigned.apk dist/nomone-touch-aligned.apk
+          "$build_tools/apksigner" sign --ks "$APK_KEYSTORE" --ks-pass "pass:$APK_STORE_PASSWORD" --ks-key-alias "$APK_KEY_ALIAS" --key-pass "pass:$APK_KEY_PASSWORD" --out dist/nomone-touch.apk dist/nomone-touch-aligned.apk
+          "$build_tools/apksigner" verify --verbose --print-certs dist/nomone-touch.apk
+          sha256sum dist/nomone-touch.apk | tee dist/nomone-touch.apk.sha256
+          printf '### NOMone Touch APK\n\n' >> "$GITHUB_STEP_SUMMARY"
+          printf '`%s`\n' "$(cat dist/nomone-touch.apk.sha256)" >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nomone-touch-${{ github.run_number }}
+          path: |
+            dist/nomone-touch.apk
+            dist/nomone-touch.apk.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
