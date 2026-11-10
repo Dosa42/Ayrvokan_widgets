@@ -1,0 +1,65 @@
+#content {
+    display: block;
+    background: none;
+}
+
+.keyboard {
+    height: calc(100% + 3px);
+    margin: -3px calc(0px - var(--content-padding)) 0px calc(0px - var(--content-padding));
+    background: linear-gradient(to right, var(--base-color-2), var(--base-color-3), var(--base-color-2));
+}
+
+.row {
+}
+
+.key {
+    display: inline-block;
+
+    /*backface-visibility: hidden;*/
+    /*image-rendering: pixelated;*/
+
+    border-image-source: url(Images/keyNormal.png);
+    border-image-slice: 19 25 19 31 fill;
+    border-image-width: 19px 25px 19px 31px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+
+    vertical-align: top;
+}
+
+div.keyHover {
+    border-image-source: url(Images/keyHover.png);
+}
+
+div.keyPressed, div.keyStuckLightly, div.keyStuckHeavily {
+    border-image-source: url(Images/keyPressed.png);
+}
+
+div.keyStuckHeavily {
+    filter: drop-shadow(0px 0px 0px rgb(255, 255, 255));
+}
+
+.label {
+    display: inline-block;
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+
+    color: #fff;
+}
+
+.keyIcon {
+    width: 80%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#button1 {
+    width: 150px;
+    height: 150px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <title>Error!</title>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Boom!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style>
+
+        :root {
+            --base-color-2: rgb(42, 46, 48);
+            --base-color-3: rgb(72, 76, 80);
+        }
+
+        body {
+            color: white;
+            font-family: sans;
+            background: linear-gradient(90deg, var(--base-color-2), var(--base-color-3), var(--base-color-2));
+        }
+
+        .backgroundText {
+            position: fixed;
+            top: 50%;
+            transform: translatey(-50%);
+
+            font-family: Android Euclid, Roboto, Helvetica, Arial, sans-serif;
+            font-size: 20vw;
+            font-weight: bold;
+            opacity: 0.03;
+        }
+
+        div.container {
+            position: fixed;
+            width: 90%;
+            top: 0px;
+            left: 50%;
+            transform: translatex(-50%);
+            text-align: center;
+        }
+
+        .title {
+            margin-top: 2vh;
+            font-size: 7vw;
+            font-weight: bold;
+            color: rgb(255, 100, 100);
+        }
+
+        .content {
+            font-size: 4vw;
+        }
+
+        .error {
+            color: rgb(255, 100, 100);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="backgroundText">Oops!</div>
+
+    <div class="container">
+        <div class="title">Boom!</div>
+        <p class="content">Umm... there seems to be a problem!</p>
+        <p class="content error">$ERROR</p>
+    </div>
+
+
+</body></html>

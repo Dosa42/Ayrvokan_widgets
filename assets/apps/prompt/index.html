@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <include>/env/promptTheme.html</include>
+    <style><include>index.css</include></style>
+
+    <script>
+        // Fetch and insert our HTML. Did it this way because the content needs to be attached
+        // to a node deep inside a previous include,
+        fetch("content.html").then(response => response.text()).then(data => {
+            document.getElementById("content").innerHTML = data;
+
+            // Run our Javascript (has to be done after the content is attached),
+            fetch("index.js").then(response => response.text()).then(data => eval(data));
+        });
+    </script>
+</body>
+</html>

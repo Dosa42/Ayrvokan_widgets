@@ -1,0 +1,2 @@
+#!/NOMone/busybox_static sh
+touch /NOMone/SystemReady

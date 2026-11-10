@@ -1,0 +1,50 @@
+// The 12th of January, 2025
+// By Omar El Sayyed
+
+precision mediump float;
+varying vec2 vTexCoord;
+uniform sampler2D uTexture;
+
+// Variables specific to unsharp,
+uniform vec2 uTexelSize;              // Size of a single texel (1/width, 1/height).
+const float lumaAmount = 1.1224;      // Sharpening strength (A).
+uniform float uKernel[25];            // Constant 5x5 kernel (because const array initializers are not a thing in OpenGL ES 2.
+
+void main() {
+
+    vec3 original = texture2D(uTexture, vTexCoord).rgb;
+
+    // Apply Gaussian blur (assuming a kernel size 5 -> must be an odd number). We can compute weights as following:    //
+    //    // x is the distance from the pixel (center).
+    //    // sigma is the standard deviation based on kernel size (sigma = float(kernelSize) / 2.0);
+    //    float gaussianWeight(float x, float sigma) {
+    //        return exp(-0.5 * (x * x) / (sigma * sigma));
+    //    }
+    //
+    //    int halfKernel = kernelSize / 2;
+    //    for (int i=-halfKernel; i<=halfKernel; i++) {
+    //        for (int j=-halfKernel; j<=halfKernel; j++) {
+    //            kernel[i+halfKernel][j+halfKernel] = gaussianWeight(length(vec2(i, j)), sigma);
+    //        }
+    //    }
+
+    vec3 blur = vec3(0.0);
+    float kernelSum = 256.0; // Sum of all kernel values.
+    int kernelIndex = 0;
+    for (int i=-2; i<=2; i++) {
+        for (int j=-2; j<=2; j++) {
+            vec2 offset = vec2(i, j) * uTexelSize;
+            vec3 sample = texture2D(uTexture, vTexCoord+offset).rgb;
+            blur += sample * uKernel[kernelIndex];
+            kernelIndex++;
+        }
+    }
+    blur /= kernelSum;
+
+    // Compute unsharp mask,
+    vec3 mask = original - blur;
+
+    // Apply sharpening,
+    vec3 sharpened = original + lumaAmount * mask;
+    gl_FragColor = vec4(sharpened, 1.0);
+}

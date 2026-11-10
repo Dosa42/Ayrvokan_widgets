@@ -1,0 +1,322 @@
+:root {
+    --border-width: 20px;
+    --border-displacement: -18px;
+
+    --base-color-1: #24262b;
+    --base-color-2: #2a2e30;
+    --base-color-2-transparent: #2a2e3000;
+    --base-color-3: #484c50;
+    --base-color-4: #b0b0b0;
+    --base-color-5: #ebeef1;
+    
+    --base-color-6: #0f1011;
+    --base-color-7: #232729;
+
+    --base-color-8: #f66;
+    --base-color-9: #6f6;
+    --base-color-10: #f60;
+
+    --content-padding: 7px;
+
+    --titleBar-textColor: #fff;
+
+    --closeButtonEnabled: 0;
+    --maximizeButtonEnabled: 0;
+    --extraBar-height: 0px;
+
+    --toggleSwitch-borderColor: white;
+    --toggleSwitch-onBackgroundColor: white;
+    --toggleSwitch-offBackgroundColor: white;
+    --toggleSwitch-onHandleColor: var(--base-color-8);
+    --toggleSwitch-offHandleColor: var(--base-color-2);
+    --toggleSwitch-onSymbolColor: white;
+    --toggleSwitch-offSymbolColor: white;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    height: 100%; 
+    margin: 0px;
+    background: rgba(0, 255, 0, 1); /* The background color which has been eluding me for years!
+                                       Check out MovableResizableFrameWindow.TransparencyShader and
+                                       themes/transparencyShader.txt */
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 21px;
+    hyphenate-character: '-';
+}
+
+body{
+    margin: 16px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    user-select: none;
+}
+
+#all { 
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 7px 7px 0 0;
+    border-color: var(--base-color-1);
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+#topBar {
+    width: 100%;
+    padding: 2px;
+    padding-bottom: 3px;
+    background: linear-gradient(to right, var(--base-color-2), var(--base-color-3), var(--base-color-2));
+    font-size: 0px;
+}
+
+#titleContainer {
+    display: inline-block;
+    width: calc(100% - (6px + 30px * (var(--closeButtonEnabled) + var(--maximizeButtonEnabled))));
+    height: 30px;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+
+#titleBar {
+    padding-left: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    line-height: 30px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    color: var(--titleBar-textColor);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0), 2px 2px 1px rgb(0, 0, 0);
+}
+
+#extraUiContainer {
+    height: var(--extraBar-height);
+}
+
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px;
+    border-radius: 25px;
+    background: linear-gradient(0deg, var(--base-color-3), var(--base-color-7));
+    text-decoration: none;
+    outline: none;
+}
+
+.button-inner {
+    padding: 5px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--base-color-3);
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    background: linear-gradient(0deg, var(--base-color-7), var(--base-color-3));
+    box-shadow: 0px 0px 0px 2px var(--base-color-8);
+}
+
+#closeButton {
+    box-shadow: 0px 0px 0px 2px var(--base-color-8);
+    z-index: 100;
+}
+
+#maximizeButton {
+    box-shadow: 0px 0px 0px 2px var(--base-color-9);
+    z-index: 100;
+}
+
+#closeButtonParent, #maximizeButtonParent {
+    display: none;
+}
+
+.button-inner[data-pressed] {
+    background: linear-gradient(0deg, var(--base-color-3), var(--base-color-7));
+}
+
+.button-text {
+    position: relative;
+    text-align: center;
+    color: var(--base-color-5);
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px black;
+    line-height: 25px;
+    font-size: 16px;
+}
+
+#contentContainer {
+    position: absolute;
+    top: calc(35px + var(--extraBar-height));
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+#content {
+    display: none;
+    height: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    /*background: linear-gradient(to right, var(--base-color-4), var(--base-color-5), var(--base-color-4));*/
+}
+
+/***********************/
+/* Borders and corners */
+/***********************/
+
+#rightBorder, #topBorder, #leftBorder, #bottomBorder, #topRightCorner, #topLeftCorner, #bottomLeftCorner, #bottomRightCorner {
+    position: absolute;
+}
+
+#rightBorder, #topRightCorner, #bottomRightCorner {
+    right: var(--border-displacement);
+}
+
+#leftBorder, #topLeftCorner, #bottomLeftCorner {
+    left: var(--border-displacement);
+}
+
+#topBorder, #topLeftCorner, #topRightCorner {
+    top: var(--border-displacement);
+}
+
+#bottomBorder, #bottomLeftCorner, #bottomRightCorner {
+    bottom: var(--border-displacement);
+}
+
+#rightBorder, #leftBorder {
+    width: var(--border-width);
+    height: 100%;
+}
+
+#topBorder, #bottomBorder {
+   width: 100%;
+   height: var(--border-width);
+}
+
+#topRightCorner, #topLeftCorner, #bottomLeftCorner, #bottomRightCorner {
+   width: var(--border-width);
+   height: var(--border-width);
+}
+
+/* Comment out or remove */
+/*
+#rightBorder, #topBorder, #leftBorder, #bottomBorder {
+   background: linear-gradient(to bottom right, green, blue);
+}
+#topRightCorner, #topLeftCorner, #bottomLeftCorner, #bottomRightCorner {
+   background: #f00;
+}
+*/
+
+/***********************/
+/* Scroll indicators   */
+/***********************/
+
+.scrollDownIndicator, .scrollUpIndicator {
+    position: fixed;
+    right: 25px;
+    width: 26px;
+    height: 26px;
+    background-size: contain;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.scrollDownIndicator {
+    bottom: 20px;
+    background-image: url('../../themes/darkWindowTheme/images/downButton.png');
+}
+
+.scrollUpIndicator {
+    top: 65px;
+    background-image: url('../../themes/darkWindowTheme/images/upButton.png');
+}
+
+/***********************/
+/* Self-themed apps    */
+/***********************/
+
+#content {
+    padding: 0px var(--content-padding) 0px var(--content-padding);
+    color: white;
+    background: linear-gradient(90deg, var(--base-color-2), var(--base-color-3), var(--base-color-2));
+}
+
+.titleBarSeparator {
+    height: 4px;
+    margin-bottom: 4px;
+    background: var(--base-color-8);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+}
+
+.separator {
+    height: 3px;
+    margin: 10px;
+    background: var(--base-color-8);
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+}
+
+.icon {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 110px;
+    overflow: hidden;
+    line-height: 1;
+    margin: 5px;
+    margin-bottom: 0px;
+    filter: drop-shadow(0px 0px 1px rgba(10, 175, 230, 0.2412));
+}
+
+.icon[data-hover], .icon:hover {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    vertical-align: top;
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 1.0)) drop-shadow(0px 0px 1px rgba(255, 255, 255, 1.0));
+}
+
+.iconImage {
+    width: 64px;
+    height: 64px;
+}
+
+.iconText {
+    display: -webkit-box;
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: white;
+    font-size: 14px;
+    line-height: initial;
+}
+
+.icon[data-hover] .iconText, .icon:hover .iconText {
+    -webkit-line-clamp: unset;
+}

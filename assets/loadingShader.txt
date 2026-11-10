@@ -1,0 +1,29 @@
+#ifdef GL_ES
+precision lowp float;
+#endif
+
+uniform float time;
+uniform vec2 resolution;
+
+const float TWO_PI = 6.28318530718;
+
+void main() {
+
+    // Normalize coordinates,
+    vec2 pointPosition = (gl_FragCoord.xy / resolution) * 2.0 - 1.0;
+    float normalizedX = pointPosition.x;
+    pointPosition.x *= resolution.x / resolution.y;
+
+    // Show only a circle,
+    float radius = length(pointPosition);
+    if (radius<0.3 && radius>0.2) {
+      float angle = (atan(pointPosition.y, pointPosition.x) / TWO_PI) + 0.5;
+      angle += (radius - 0.2) / 0.15;
+      angle = mod(angle + 0.25*time, 1.0);
+
+      gl_FragColor = vec4(vec3(angle), 1.0);
+    } else {
+
+      gl_FragColor = mix(vec4(0.282, 0.298, 0.314, 1.0), vec4(0.165, 0.180, 0.188, 1.0), abs(normalizedX));
+    }
+}

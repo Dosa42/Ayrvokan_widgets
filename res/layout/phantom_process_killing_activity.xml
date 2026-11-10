@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper android:id="@id/viewFlipper" android:background="@color/background" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/ppkt_introduction_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_introduction_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_introduction_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_introduction_listText" android:text="@string/ppkt_introduction_list" style="@style/ppkt_list" />
+                <TextView android:id="@id/ppkt_introduction_noteText" android:text="@string/ppkt_introduction_note" style="@style/ppkt_note" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_introduction_skipButton" android:text="@string/ppkt_introduction_firstButton" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_introduction_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_splitScreen_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_splitScreenAndNotifications_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_splitScreenAndNotifications_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_splitScreen_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_splitScreen_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_enableDeveloperOptions_page" style="@style/ppkt_page">
+        <ScrollView android:id="@id/ppkt_enableDeveloperOptions_scroll" style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_enableDeveloperOptions_title" style="@style/ppkt_title" />
+                <TextView android:id="@id/ppkt_enableDeveloperOptions_text" android:text="@string/ppkt_enableDeveloperOptions_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_enableDeveloperOptions_listText" android:text="@string/ppkt_enableDeveloperOptions_list" style="@style/ppkt_list" />
+                <TextView android:id="@id/ppkt_enableDeveloperOptions_noteText" android:text="@string/ppkt_enableDeveloperOptions_note" style="@style/ppkt_note" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_enableDeveloperOptions_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_enableDeveloperOptions_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_goToDeveloperOptions_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_goToDeveloperOptions_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_goToDeveloperOptions_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_goToDeveloperOptions_listText" android:text="@string/ppkt_goToDeveloperOptions_list" style="@style/ppkt_list" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_goToDeveloperOptions_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_goToDeveloperOptions_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_canYouSeeDeveloperOptions_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_canYouSeeDeveloperOptions_title" style="@style/ppkt_title" />
+                <TextView android:id="@id/ppkt_canYouSeeDeveloperOptions_text" android:text="@string/ppkt_canYouSeeDeveloperOptions_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_canYouSeeDeveloperOptions_listText" android:text="@string/ppkt_canYouSeeDeveloperOptions_list" style="@style/ppkt_list" />
+                <TextView android:text="@string/ppkt_canYouSeeDeveloperOptions_note" style="@style/ppkt_note" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_canYouSeeDeveloperOptions_tryAgainButton" android:text="@string/ppkt_tryAgain" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_canYouSeeDeveloperOptions_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_enableWirelessDebugging_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_enableWirelessDebugging_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_enableWirelessDebugging_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_enableWirelessDebugging_listText" android:text="@string/ppkt_enableWirelessDebugging_list" style="@style/ppkt_list" />
+                <TextView android:id="@id/ppkt_enableWirelessDebugging_noteText" android:text="@string/ppkt_enableWirelessDebugging_note" style="@style/ppkt_note" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_enableWirelessDebugging_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_enableWirelessDebugging_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_connectionPort_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_connectionPort_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_connectionPort_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_connectionPort_listText" android:text="@string/ppkt_connectionPort_list" style="@style/ppkt_list" />
+                <TextView android:text="@string/ppkt_connectionPort_note" style="@style/ppkt_note" />
+                <LinearLayout android:layout_marginBottom="15.0dp" style="@style/ppkt_horizontalLayout">
+                    <TextView android:id="@id/ppkt_connectionPort_inputText" android:hint="@string/ppkt_connectionPort_codeHint" android:maxLength="5" style="@style/ppkt_inputText" />
+                    <com.nomone.vr_desktop.PhantomProcessKillingDisablingGuide.Numpad android:id="@id/ppkt_connectionPort_numpad" style="@style/ppkt_numpadLayout" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_connectionPort_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_connectionPort_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_pairCode_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_pairCode_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_pairCode_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_pairCode_listText" android:text="@string/ppkt_pairCode_list" style="@style/ppkt_list" />
+                <TextView android:text="@string/ppkt_pairCode_note" style="@style/ppkt_note" />
+                <LinearLayout android:layout_marginBottom="15.0dp" style="@style/ppkt_horizontalLayout">
+                    <TextView android:id="@id/ppkt_pairCode_inputText" android:hint="@string/ppkt_pairCode_codeHint" android:maxLength="6" style="@style/ppkt_inputText" />
+                    <com.nomone.vr_desktop.PhantomProcessKillingDisablingGuide.Numpad android:id="@id/ppkt_pairCode_numpad" style="@style/ppkt_numpadLayout" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_pairCode_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_pairCode_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_pairPort_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_pairPort_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_pairPort_text" style="@style/ppkt_text" />
+                <TextView android:id="@id/ppkt_pairPort_listText" android:text="@string/ppkt_pairPort_list" style="@style/ppkt_list" />
+                <TextView android:text="@string/ppkt_pairPort_note" style="@style/ppkt_note" />
+                <LinearLayout android:layout_marginBottom="15.0dp" style="@style/ppkt_horizontalLayout">
+                    <TextView android:id="@id/ppkt_pairPort_inputText" android:hint="@string/ppkt_pairPort_portHint" android:maxLength="5" style="@style/ppkt_inputText" />
+                    <com.nomone.vr_desktop.PhantomProcessKillingDisablingGuide.Numpad android:id="@id/ppkt_pairPort_numpad" style="@style/ppkt_numpadLayout" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_pairPort_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_pairPort_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_fixingSuccessful_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_fixingSuccessful_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_fixingSuccessful_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_fixingSuccessful_okButton" android:text="@string/ppkt_ok" style="@style/ppkt_firstButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_pairingFailed_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_pairingFailed_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_pairingFailed_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_pairingFailed_GiveUpButton" android:text="@string/ppkt_giveUp" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_pairingFailed_tryAgainButton" android:text="@string/ppkt_tryAgain" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_connectionFailed_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_connectionFailed_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_connectionFailed_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_connectionFailed_GiveUpButton" android:text="@string/ppkt_giveUp" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_connectionFailed_tryAgainButton" android:text="@string/ppkt_tryAgain" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_fixingFailed_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_fixingFailed_title" style="@style/ppkt_title" />
+                <TextView android:id="@id/ppkt_fixingFailed_text" android:text="@string/ppkt_fixingFailed_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_fixingFailed_okButton" android:text="@string/ppkt_ok" style="@style/ppkt_firstButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_noDeviceInfo_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_noDeviceInfo_title" style="@style/ppkt_title" />
+                <TextView android:id="@id/ppkt_noDeviceInfo_text" android:text="@string/ppkt_noDeviceInfo_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_noDeviceInfo_okButton" android:text="@string/ppkt_ok" style="@style/ppkt_firstButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_noDeveloperOptions_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_noDeveloperOptions_title" style="@style/ppkt_title" />
+                <TextView android:id="@id/ppkt_noDeveloperOptions_text" android:text="@string/ppkt_noDeveloperOptions_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_noDeveloperOptions_okButton" android:text="@string/ppkt_ok" style="@style/ppkt_firstButton" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@id/ppkt_wirelessDebuggingAlreadyEnabled_page" style="@style/ppkt_page">
+        <ScrollView style="@style/ppkt_scrollView">
+            <LinearLayout style="@style/ppkt_verticalLayout">
+                <TextView android:text="@string/ppkt_wirelessDebuggingAlreadyEnabled_title" style="@style/ppkt_title" />
+                <TextView android:text="@string/ppkt_wirelessDebuggingAlreadyEnabled_text" style="@style/ppkt_text" />
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout style="@style/ppkt_horizontalLayout">
+            <Button android:id="@id/ppkt_wirelessDebuggingAlreadyEnabled_previousButton" android:text="@string/ppkt_previous" style="@style/ppkt_firstButton" />
+            <Button android:id="@id/ppkt_wirelessDebuggingAlreadyEnabled_nextButton" android:text="@string/ppkt_next" style="@style/ppkt_secondButton" />
+        </LinearLayout>
+    </LinearLayout>
+</ViewFlipper>

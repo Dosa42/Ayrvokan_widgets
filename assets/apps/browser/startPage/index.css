@@ -1,0 +1,24 @@
+html, body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: block;
+    background: linear-gradient(to right, #2a2e30, #484c50, #2a2e30);
+}
+
+#backgroundImage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translatex(-50%) translatey(-50%);
+
+    width: auto;
+    height: auto;
+    max-width: 50vw;
+    max-height: 50vh;
+
+    display: none;
+}

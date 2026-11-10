@@ -1,0 +1,28 @@
+precision highp float;
+varying vec3 vPosition;
+uniform sampler2D uTexture;
+uniform float uTextureVerticalShift;
+uniform float uTextureVerticalScale;
+
+const float PI = 3.141592654;
+const float HALF_PI = PI / 2.0;
+const vec2 COORDS_NORMALIZATION_FACTOR = vec2(1.0/(2.0*PI), 1.0/PI);
+
+void main() {
+
+    // Get the pitch,
+    vec2 angle;
+    angle.x = atan(vPosition.x, vPosition.z);
+
+    // Reverse the pitch to get the correct roll (we only need the z component),
+    float unpitchedZ = vPosition.z*cos(-angle.x) + vPosition.x*sin(angle.x);
+
+    // Get the roll,
+    angle.y = HALF_PI + atan(unpitchedZ, vPosition.y);
+
+    // Sample the equirectangular 360 degree texture,
+    vec2 textureCoordinates = (angle * COORDS_NORMALIZATION_FACTOR) + 0.5;
+    textureCoordinates.y *= uTextureVerticalScale;
+    textureCoordinates.y += uTextureVerticalShift;
+    gl_FragColor = texture2D(uTexture, textureCoordinates);
+}

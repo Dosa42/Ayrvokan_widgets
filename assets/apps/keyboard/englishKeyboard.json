@@ -1,0 +1,59 @@
+{
+    "keyWidth": "10",
+    "keyHeight": "25",
+    "horizontalGap": "0",
+    "verticalGap": "0",
+    "rows": [
+        {
+            "keys": [
+                {"character": "q", "popupCharacters":          "1"},
+                {"character": "w", "popupCharacters":          "2"},
+                {"character": "e", "popupCharacters":     "ēêëè3é", "defaultPopupCharacter": "5"},
+                {"character": "r", "popupCharacters":          "4"},
+                {"character": "t", "popupCharacters":          "5"},
+                {"character": "y", "popupCharacters":          "6"},
+                {"character": "u", "popupCharacters":     "ūüùû7ú", "defaultPopupCharacter": "5"},
+                {"character": "i", "popupCharacters":     "ìïīî8í", "defaultPopupCharacter": "5"},
+                {"character": "o", "popupCharacters":  "õōøœòöôó9", "defaultPopupCharacter": "9"},
+                {"character": "p", "popupCharacters":          "0"}
+            ]
+        },
+        {
+            "keys": [
+                {"character": "a", "popupCharacters":  "æãåā@àáâä", "defaultPopupCharacter": "5", "marginLeft":"5"},
+                {"character": "s", "popupCharacters":         "#ß"},
+                {"character": "d", "popupCharacters":          "$"},
+                {"character": "f", "popupCharacters":          "%"},
+                {"character": "g", "popupCharacters":      "&amp;"},
+                {"character": "h", "popupCharacters":          "-"},
+                {"character": "j", "popupCharacters":          "+"},
+                {"character": "k", "popupCharacters":          "("},
+                {"character": "l", "popupCharacters":          ")"}
+            ]
+        },
+        {
+            "keys": [
+                {"special"  :  "1", "icon": "shift", "width": "15", "sticky":"true" },
+                {"character":  "z", "popupCharacters":          "*"},
+                {"character":  "x", "popupCharacters":         "\""},
+                {"character":  "c", "popupCharacters":         "'ç"},
+                {"character":  "v", "popupCharacters":          ":"},
+                {"character":  "b", "popupCharacters":          ";"},
+                {"character":  "n", "popupCharacters":         "!ñ"},
+                {"character":  "m", "popupCharacters":          "?"},
+                {"key"      : "67", "icon": "delete", "width": "15", "repeatable": "true"}
+            ]
+        },
+        {
+            "keys": [
+                {"special":    "2", "label":     "?123", "width": "10"},
+                {"special":  "101", "icon" : "language", "width": "10"},
+                {"character":  " ", "icon" :    "space", "width": "35", "repeatable": "true"},
+                {"character":  ",",                      "width": "10"},
+                {"character":  ".",                      "width": "10", "popupCharacters": "&amp;%+&quot;-:'@;/()#!,?", "defaultPopupCharacter": "15"},
+                {"character":  "/",                      "width": "10"},
+                {"key"      : "66", "icon" :    "enter", "width": "15", "repeatable": "true"}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+attribute vec3 aPosition;
+uniform mat4 uTransformationMatrix;
+uniform mat4 uViewportMatrix;
+uniform vec2 uViewAngleRadian;
+uniform float uAspectRatio;
+
+varying vec3 vPosition;
+
+// Projection screen extends from [-1, -1] to [1, 1]. A projection distance of 1 corresponds to
+// a 90 degree field of view.
+const float projectionDistanceFromEye = 1.0;//2.412;
+
+void main() {
+    vec4 transformedPosition = uTransformationMatrix * vec4(aPosition, 1.0);
+    gl_Position = transformedPosition;
+
+    // Apply viewport transformation,
+    transformedPosition = transformedPosition / transformedPosition.w;
+    transformedPosition = uViewportMatrix * transformedPosition;
+
+    // Get the normalized position,
+    vPosition = vec3(transformedPosition.xy, projectionDistanceFromEye);
+    vPosition.x *= uAspectRatio;
+
+    // Transform the window to its final position to sample from the 360 texture,
+    vec2 cosines = cos(uViewAngleRadian);
+    vec2 sines   = sin(uViewAngleRadian);
+
+    // Roll,
+    float tempY = vPosition.y*cosines.y - vPosition.z*sines.y;
+    vPosition.z = vPosition.z*cosines.y + vPosition.y*sines.y;
+    vPosition.y = tempY;
+
+    // Pitch,
+    float tempZ = vPosition.z*cosines.x - vPosition.x*sines.x;
+    vPosition.x = vPosition.x*cosines.x + vPosition.z*sines.x;
+    vPosition.z = tempZ;
+}

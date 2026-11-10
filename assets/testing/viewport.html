@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html style="width:100%; height:100%; margin:0; border: 2px solid green;">
+<head>
+    <style>
+        * { box-sizing: border-box; }
+    </style>
+
+</head>
+<body>
+
+<button onclick="test()">Get viewport</button>
+
+<p id="info"></p>
+
+<script>
+function test() {
+
+    const headElement = document.getElementsByTagName('head')[0];
+    const viewportTag = headElement.querySelector("meta[name='viewport']");
+
+    document.getElementById("info").innerHTML = viewportTag.content + "<br>Density: " + window.devicePixelRatio;
+}
+</script>
+
+</body>
+</html>
+

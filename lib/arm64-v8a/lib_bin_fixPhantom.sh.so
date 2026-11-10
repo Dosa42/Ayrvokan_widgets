@@ -1,0 +1,10 @@
+deviceId=$($BIN/adb devices -l)
+deviceId=${deviceId: -1}
+
+# Disable phantom process killing,
+$BIN/adb -t $deviceId shell "/system/bin/device_config set_sync_disabled_for_tests persistent; /system/bin/device_config put activity_manager max_phantom_processes 2147483647; settings put global settings_enable_monitor_phantom_procs false"
+
+# Enable phantom process killing,
+#$BIN/adb -t $deviceId shell "/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32; settings put global settings_enable_monitor_phantom_procs true"
+
+echo max_phantom_processes: $($BIN/adb -t $deviceId shell device_config get activity_manager max_phantom_processes)

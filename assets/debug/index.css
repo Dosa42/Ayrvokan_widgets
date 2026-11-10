@@ -1,0 +1,57 @@
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    padding: 8px;
+}
+
+#container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#controlsRow {
+    display: table-row;
+}
+
+#logRow {
+    display: table-row;
+    height: 100%;
+}
+
+#logCell {
+    display: table-cell;
+    height: 100%;
+}
+
+#logContainer {
+    position:relative;
+    height:100%;
+    overflow: scroll;
+    padding: 5px;
+    border: 1px solid;
+}
+
+#log {
+    position: absolute;
+    top:0px;
+    white-space: pre-line;
+}
+
+.button {
+    padding: 5px;
+    border: 1px solid #b97;
+    border-radius: 5px;
+    user-select: none;
+    margin: 5px;
+}
+
+.button:active {
+    background: #b97;
+}
+

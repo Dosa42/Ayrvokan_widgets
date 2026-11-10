@@ -1,1 +1,0 @@
-{"schema":"ayrvokan.widget/1","id":"agent","title":"Ayrvokan Agent","version":"0.2.0","entry":"builtin:agent","runtime":"native-rust-bash","persistent":true,"default":true,"minimumSizeDp":{"width":340,"height":320},"defaultState":{"cwd":"/root/workspace"}}

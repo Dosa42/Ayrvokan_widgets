@@ -1,0 +1,11 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <circle cx="128" cy="128" r="120" fill="url(#gradient)" stroke="none"/>
+    <path d="M96 96L64 64M64 112V64H112M160 96L192 64M192 112V64H144M160 160L192 192M192 144V192H144M96 160L64 192M64 144V192H112" 
+        stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <defs>
+        <radialGradient id="gradient" cx="50%" cy="50%" r="70%" fx="50%" fy="40%">
+            <stop stop-color="#4A90E2"/>
+            <stop offset="1" stop-color="#1E64C8"/>
+        </radialGradient>
+    </defs>
+</svg>

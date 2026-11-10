@@ -1,0 +1,5 @@
+#!/support/common/busybox_static sh
+
+export LD_LIBRARY_PATH=/host-rootfs/system/lib64
+#/host-rootfs/system/bin/linker64 /data/data/nom.vrd/files/common/bin/ls /data/data/nom.vrd/files/common/bin
+/host-rootfs/system/bin/linker64 /data/data/nom.vrd/files/common/bin/glxgears

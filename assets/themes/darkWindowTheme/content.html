@@ -1,0 +1,38 @@
+<style><include>index.css</include></style>
+
+<div id="all">
+    <div id="topBar">
+        <div id="titleContainer">
+            <div id="titleBar"></div>
+        </div>
+        <div id="maximizeButtonParent" class="button">
+            <div id="maximizeButton" class="button-inner">
+                <div class="button-text"></div>
+            </div>
+        </div>
+        <div id="closeButtonParent" class="button">
+            <div id="closeButton" class="button-inner">
+                <div class="button-text"></div>
+            </div>
+        </div>
+        <div id="extraUiContainer"></div>
+    </div>
+    <div id="contentContainer">
+        <div id="content"></div>
+    </div>
+</div>
+
+<div id="rightBorder"></div>
+<div id="topBorder"></div>
+<div id="leftBorder"></div>
+<div id="bottomBorder"></div>
+
+<div id="topRightCorner"></div>
+<div id="topLeftCorner"></div>
+<div id="bottomLeftCorner"></div>
+<div id="bottomRightCorner"></div>
+
+<script>
+    <include>index.js</include>
+    window.sendMessage("Start drawing frame");
+</script>

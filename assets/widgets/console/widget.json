@@ -1,1 +1,0 @@
-{"schema":"ayrvokan.widget/1","id":"console","title":"DOS Console","version":"0.1.0","entry":"builtin:console","runtime":"embedded-linux-cli","minimumSizeDp":{"width":280,"height":320},"defaultState":{}}

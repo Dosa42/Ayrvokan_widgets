@@ -1,0 +1,279 @@
+
+<div class="tabs">
+    <div id="generalTab" class="tab">General</div><div id="vrTab" class="tab">VR</div><div id="linuxTab" class="tab">Linux</div><div class="tabsUnderline"></div>
+</div>
+
+<div class="topScrollShadow"></div>
+
+<div id="pages" class="pages">
+    <div class="emptySpace"></div>
+
+    <!-- General settings -->
+    <div id="generalSettings" class="settingsList">
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Zoom</h3>
+                <span class="settingDescription">Things are too small/large? Try this.</span>
+            </span>
+        </div>
+        <input id="scaleSlider" class="slider" type="range" min="0" max="6" step="1">
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Cursor Speed</h3>
+                <span class="settingDescription">Faster to the right, slower to the left, effective immediately.</span>
+            </span>
+        </div>
+        <input id="cursorSpeedSlider" class="slider" type="range" min="0.5" max="5" step="0.5">
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Scrolling Speed</h3>
+                <span class="settingDescription">Faster to the right, slower to the left, effective immediately.</span>
+            </span>
+        </div>
+        <input id="scrollingSpeedSlider" class="slider" type="range" min="0.5" max="5" step="0.5">
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Looking around</h3>
+                <span class="settingDescription">Pans around the screen as the cursor moves <strong>outside</strong> VR mode.</span>
+            </span>
+            <div class="cell"><div id="desktopLookingAroundSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div id="hiddenLookingAroundSettings" class="hidden">
+            <div class="separator"></div>
+            <div class="setting">
+                    <span class="settingText">
+                        <h3 class="settingTitle">Fullscreen width</h3>
+                        <span class="settingDescription">In looking around, fullscreen windows can be larger than the actual viewport. Makes better use of the available space.</span>
+                    </span>
+            </div>
+            <input id="fullscreenWidthSlider" class="slider" type="range" min="1" max="1.6" step="0.1">
+
+            <div class="separator"></div>
+            <div class="setting">
+                    <span class="settingText">
+                        <h3 class="settingTitle">Fullscreen height</h3>
+                        <span class="settingDescription">In looking around, fullscreen windows can be larger than the actual viewport. Makes better use of the available space.</span>
+                    </span>
+            </div>
+            <input id="fullscreenHeightSlider" class="slider" type="range" min="1" max="1.6" step="0.1">
+        </div>
+
+        <div id="ignoreCutoutsSetting" class="hidden">
+            <div class="separator"></div>
+            <div class="setting">
+                <span class="settingText">
+                    <h3 class="settingTitle">Ignore cut-outs</h3>
+                    <span class="settingDescription">Maximizes the usable display area by ignor&shy;ing cut-outs made for cameras and sen&shy;sors (req&shy;uires re&shy;starting the app&shy;lication).</span>
+                </span>
+                <div class="cell"><div id="ignoreCutoutsSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+        <div id="orientationSetting">
+            <div class="setting">
+                <span class="settingText">
+                    <h3 class="settingTitle">Orientation</h3>
+                    <span class="settingDescription">Portrait, landscape and upside-down.</span>
+                </span>
+                <div class="cell">
+                    <a class="button">
+                        <div id="orientationLeftButton" class="button-inner orientationButton">
+                            <div class="button-text orientationButtonText">⤹</div>
+                        </div>
+                    </a>
+                    <a class="button">
+                        <div id="orientationRightButton" class="button-inner orientationButton">
+                            <div class="button-text orientationButtonText">⤸</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Allow mouse release</h3>
+                <span class="settingDescription">When in fullscreen, release mouse from capture when the mouse stays at the top or the bottom of the screen for <strong>1 second</strong>. Part&shy;icularly useful in Sam&shy;sung Dex mode.</span>
+            </span>
+            <div class="cell"><div id="releaseMouseSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+    </div>
+
+    <!-- VR settings -->
+    <div id="vrSettings" class="settingsList">
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">VR mode</h3>
+                <span class="settingDescription">For phone-based VR goggles.</span>
+            </span>
+            <div class="cell"><div id="vrSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div id=hiddenVRSettings class="hidden">
+            <div id="ipdSetting">
+                <div class="separator"></div>
+                <div class="setting">
+                    <span class="settingText">
+                        <h3 class="settingTitle">IPD (Interpupillary Distance)</h3>
+                        <span class="settingDescription">The distance between eyes, measured in arbitrary units. Please adjust until your eyes feel comfortable.</span>
+                    </span>
+                </div>
+                <div class="fullLineSetting">
+                    <span id="ipdMinus" class="controlsButton adjustmentButton">-</span>
+                    <span id="ipdText"  class="adjustmentText">0.0</span>
+                    <span id="ipdPlus"  class="controlsButton adjustmentButton">+</span>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+            <div class="setting">
+                <span class="settingText">
+                    <h3 class="settingTitle">VR looking around</h3>
+                    <span class="settingDescription">Follow the cursor as it moves in VR mode.</span>
+                </span>
+                <div class="cell"><div id="vrLookingAroundSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+            </div>
+
+            <div id="hiddenVRLookingAroundSettings" class="hidden">
+                <div class="separator"></div>
+                <div class="setting">
+                    <span class="settingText">
+                        <h3 class="settingTitle">Fullscreen width</h3>
+                        <span class="settingDescription">In looking around, fullscreen windows can be larger than the actual viewport. Makes better use of the available space.</span>
+                    </span>
+                </div>
+                <input id="vrFullscreenWidthSlider" class="slider" type="range" min="0.7" max="1.3" step="0.1">
+
+                <div class="separator"></div>
+                <div class="setting">
+                    <span class="settingText">
+                        <h3 class="settingTitle">Fullscreen height</h3>
+                        <span class="settingDescription">In looking around, fullscreen windows can be larger than the actual viewport. Makes better use of the available space.</span>
+                    </span>
+                </div>
+                <input id="vrFullscreenHeightSlider" class="slider" type="range" min="0.7" max="1.3" step="0.1">
+            </div>
+        </div>
+    </div>
+
+    <!-- Linux settings -->
+    <div id="linuxSettings" class="settingsList">
+
+        <div class="noteText"><em>(*) Restarting Linux is required for changes in these settings to take effect.</em></div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Start Linux fullscreen*</h3>
+                <span class="settingDescription">No need for the annoying 3-fingers gesture we all hate. You may still use it, though.</span>
+            </span>
+            <div class="cell"><div id="startLinuxFullscreenSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Audio*</h3>
+                <span class="settingDescription">Enabling this option degrades perform&shy;ance signifi&shy;cantly. Recom&shy;mended for powerful phones only. We'll be fixing that if Allah wills.</span>
+            </span>
+            <div class="cell"><div id="audioSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Sharpen</h3>
+                <span class="settingDescription">Applies a sharpen filter to the entire frame. Makes text look less fuzzy. GPU intensive, though.</span>
+            </span>
+            <div class="cell"><div id="sharpenSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">16 bit color*</h3>
+                <span class="settingDescription">Uses less colors to draw. May or may not increase performance.</span>
+            </span>
+            <div class="cell"><div id="16bitColorSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Hardware acceleration (experimental)*</h3>
+                <span class="settingDescription">Some programs won't launch, some will have issues, some will be slower and some will benefit greatly.</span>
+            </span>
+            <div class="cell"><div id="hardwareAccelerationSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Max CPU</h3>
+                <span class="settingDescription">Force CPU to run on max frequency all the time. May cause heat&shy;ing and battery drain&shy;ing. <strong>Use for shorts periods only</strong>. If the device over&shy;heats, it throttles, becoming even slower than normal. Must re-enable with every launch.</span>
+            </span>
+            <div class="cell"><div id="busyLoopSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Limit memory*</h3>
+                <span class="settingDescription">Limit maximum memory used by Linux in an attempt to avoid being killed by Android's OOM killer (but some app&shy;lications like <strong>chromium won't work</strong>).</span>
+            </span>
+            <div class="cell"><div id="limitMemorySwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Force English locale*</h3>
+                <span class="settingDescription">Ignore device locale and always use <em>en_US.UTF-8</em>.</span>
+            </span>
+            <div class="cell"><div id="forceEnglishLocaleSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Run as root*</h3>
+                <span class="settingDescription">Start Linux as user <strong>root</strong>. The way the app simu&shy;lates users, root is recomm&shy;ended. Other users have the same privil&shy;eges anyway, and apps checking for root owner&shy;ship will be dis&shy;appointed. But, here's the option anyway!</span>
+            </span>
+            <div class="cell"><div id="runAsRootSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Ulauncher*</h3>
+                <span class="settingDescription">Pressing <strong>Shift + Space</strong> brings up a quick launch&shy;er, but uses around 60 MBs of memory even when idle. Totally useless if you won't attach a physical key&shy;board.</span>
+            </span>
+            <div class="cell"><div id="ulauncherSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="setting">
+            <span class="settingText">
+                <h3 class="settingTitle">Safe mode*</h3>
+                <span class="settingDescription">Disables some features and optimizations that may not work on some devices.</span>
+            </span>
+            <div class="cell"><div id="safeModeSwitch" class="settingsToggleSwitch"><div class="toggleSwitchContainer"><div class="toggleSwitchLeftBackground"></div><div class="toggleSwitchOn">✓</div><div class="toggleSwitchOff">✗</div><div class="toggleSwitchRightBackground"></div></div></div></div>
+        </div>
+    </div>
+
+    <div class="emptySpace"></div>
+</div>
+
+<div class="bottomScrollShadow"></div>
+<div id="scrollUpIndicator" class="scrollUpIndicator"></div>
+<div id="scrollDownIndicator" class="scrollDownIndicator"></div>

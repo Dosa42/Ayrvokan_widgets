@@ -1,1 +1,0 @@
-{"schema": "ayrvokan.widget/1", "id": "network", "title": "Network HQ", "version": "0.4.0", "entry": "builtin:network", "runtime": "android-linux-network", "persistent": true, "default": true, "minimumSizeDp": {"width": 360, "height": 380}}

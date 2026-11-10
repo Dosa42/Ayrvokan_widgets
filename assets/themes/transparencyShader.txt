@@ -1,0 +1,24 @@
+#extension GL_OES_EGL_image_external : require
+
+precision mediump float;
+
+varying vec2 vTexCoord;
+uniform samplerExternalOES uTexture;
+
+uniform vec4 uBorders;
+
+void main() {
+
+    vec4 color = texture2D(uTexture, vTexCoord);
+
+    // TODO: Test which lines provides better performance, the commented or the enabled (note, to use
+    // the commented lines, don't invert the sign of the upper bounds while passing the uniform),
+    //if ((gl_FragCoord.x < uBorders.x || gl_FragCoord.x > uBorders.z || gl_FragCoord.y < uBorders.y || gl_FragCoord.y > uBorders.w) &&
+    //if ((any(lessThan(gl_FragCoord.xy, uBorders.xy)) || any(greaterThan(gl_FragCoord.xy, uBorders.zw))) &&
+    if (any(lessThan(vec4(gl_FragCoord.xy, -gl_FragCoord.xy), uBorders)) &&
+        (color.r < 0.3) && (color.b < 0.3) && (color.g > 0.3)) {  // 77
+        gl_FragColor = vec4(vec3(0.0), 1.0 - color.g);
+    } else {
+        gl_FragColor = color;
+    }
+}

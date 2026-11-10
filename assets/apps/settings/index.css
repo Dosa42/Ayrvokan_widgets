@@ -1,0 +1,327 @@
+
+/************************************/
+/* Tabs *****************************/
+/************************************/
+
+#content {
+    display: block;
+}
+
+.tabs {
+    margin-top: -31px;
+    margin-left: 4px;
+    --tabsCount: 3;
+    --tabWidth: 100px;
+    --tabOverlap: 4px;
+}
+
+.tab {
+    display: inline-block;
+    line-height: 24px;
+    height: 36px;
+    font-size: 18px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    color: var(--titleBar-textColor);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0), 2px 2px 1px rgb(0, 0, 0);
+    border-radius: 12px 12px 0 0;
+    border-style: solid;
+    border-width: 4px;
+    border-color: var(--base-color-8);
+    box-shadow: inset 0px 1px 4px 0px var(--base-color-6),
+                      1px 1px 2px rgba(0, 0, 0, 0.75);
+
+    width: var(--tabWidth);
+    padding: 2px 12px 2px 12px;
+    margin: 0px;
+    margin-left: calc(0px - var(--tabOverlap));
+}
+
+.tab.activeTab {
+    border-bottom-width: 0px;
+    z-index: 2;
+    box-shadow: none;
+}
+
+.tabsUnderline {
+    display: inline-block;
+    position: relative;
+    top: 12px;
+    height: 4px;
+    margin-left: -4px;
+    width: calc(4px + 100% - var(--tabsCount) * (var(--tabWidth) - var(--tabOverlap)) );
+
+    background: var(--base-color-8);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+    border-radius: 0 5px 5px 0;
+}
+
+.pages {
+    height: calc(100% - 7px);
+    margin-top: 2px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/************************************/
+/* Settings *************************/
+/************************************/
+
+.settingsList {
+    display: none;
+    padding: 0px 30px 0px 30px;
+}
+
+.setting {
+    display: table;
+    width: 100%;
+}
+
+.settingText {
+    display: table-cell;
+    margin: 0;
+    text-align: justify;
+    hyphens: manual;
+}
+
+.settingTitle {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    width: calc(100vw - 200px);
+}
+
+.settingDescription, .noteText {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.settingsToggleSwitch {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    margin: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+div {
+    transition: opacity 1s;
+}
+
+.controlsButton {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin: 2px 0px 0px 5px;
+    border: 2px solid var(--base-color-8);
+    border-radius: 3px;
+    background-size: contain;
+    background-position: center;
+}
+
+.controlsButton:hover {
+    background-color: #933;
+    border-color: #933;
+}
+
+.controlsButton[disabled] {
+    pointer-events: none;
+    border-color: transparent;
+    opacity: 0.6;
+}
+
+.controlsButton:active {
+    background-color: #b33;
+    border-color: #b33;
+}
+
+.fullLineSetting {
+    text-align: center;
+    font-size: 0px;
+}
+
+.adjustmentButton {
+    margin: 5px;
+    line-height: 100%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--base-color-10);
+}
+
+.adjustmentText {
+    display: inline-block;
+    width: 45px;
+    height: 100%;
+    line-height: 100%;
+    font-size: 20px;
+    text-align: center;
+}
+
+/****************************/
+/* Sliders ******************/
+/****************************/
+
+.slider {
+    position: relative;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5px;
+    color: transparent;
+    z-index: 2;
+}
+
+.sliderMarkingsContainer, .sliderMarkingsBottommostContainer {
+    position: relative;
+    width: 66%;
+    margin-top: -17px;
+    margin-left: 17%;
+    margin-bottom: 5px;
+    z-index: 1;
+}
+
+.sliderMarkingsBottommostContainer {
+    margin-bottom: 30px;
+}
+
+.sliderMarking {
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%); /* Center the text */
+    font-size: 12px;
+    color: #ddd;
+}
+
+.sliderMarking strong {
+    color: #fff;
+}
+
+.sliderMarking em {
+    font-size: 16px;
+}
+
+/****************************/
+/* Orientation setting ******/
+/****************************/
+
+.orientationButton {
+    width:30px;
+    height:30px;
+}
+
+.orientationButtonText {
+    line-height:15px;
+    font-size: 24px;
+}
+
+/************************/
+/* Scrolling stuff ******/
+/************************/
+
+.emptySpace {
+    height: 12px;
+}
+
+.topScrollShadow, .bottomScrollShadow {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, var(--base-color-2), var(--base-color-3), var(--base-color-2));
+    pointer-events: none;
+}
+
+.topScrollShadow {
+    top: 7px;
+    mask: linear-gradient(to bottom, white, transparent);
+}
+
+.bottomScrollShadow {
+    bottom: 0;
+    mask: linear-gradient(to top, white, transparent);
+}
+
+/************************************/
+/* Toggle switch ********************/
+/************************************/
+
+.toggleSwitch, .settingsToggleSwitch {
+    --width: 55px;
+    --set: 0;
+    --transition: 0.25s ease-in-out;
+    display: inline-block;
+    width: var(--width);
+    height: calc(var(--width) / 2);
+}
+
+.toggleSwitchContainer {
+    width: 100%;
+    height: 100%;
+    background: var(--toggleSwitch-borderColor);
+    box-shadow: calc(var(--width)*0.02) calc(var(--width)*0.02) calc(var(--width)*0.20) rgba(255, 255, 255, 0.5);
+    padding: 3%;
+    border-radius: 500px;
+    font-size: 0;
+}
+
+.toggleSwitchRightBackground, .toggleSwitchLeftBackground {
+    display: inline-block;
+    height: 100%;
+    border-radius: 500px;
+    box-shadow: inset calc(var(--width)*0.05) calc(var(--width)*0.05) calc(var(--width)*0.20) rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.toggleSwitchRightBackground {
+    width: calc(var(--width)*0.235 + (1 - var(--set))*var(--width)*0.47);
+    background: var(--toggleSwitch-offBackgroundColor);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.toggleSwitchLeftBackground {
+    width: calc(var(--width)*0.235 +      var(--set) *var(--width)*0.47);
+    background: var(--toggleSwitch-onBackgroundColor);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.toggleSwitchOn, .toggleSwitchOff {
+    display: inline-block;
+    width: calc(var(--width)*0.47);
+    height: 100%;
+    border-radius: 500px;
+    margin-left: calc(var(--width)*-0.236);
+    margin-right: calc(var(--width)*-0.235);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+    line-height: 130%;
+    font-family: freeserif;
+    font-size: calc(var(--width)*0.35);
+    vertical-align: top;
+    text-align: center;
+    user-select: none;
+}
+
+.toggleSwitchOn {
+    background: var(--toggleSwitch-onHandleColor);
+    color: var(--toggleSwitch-onSymbolColor);
+    transform: rotate(calc((var(--set) - 1)*270deg));
+    opacity: calc(var(--set));
+}
+
+.toggleSwitchOff {
+    background: var(--toggleSwitch-offHandleColor);
+    color: var(--toggleSwitch-offSymbolColor);
+    transform: rotate(calc(var(--set)*270deg));
+    opacity: calc(1 - var(--set));
+}

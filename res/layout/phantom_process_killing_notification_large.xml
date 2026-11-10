@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enable Developer Options" style="@style/TextAppearance.Compat.Notification.Title" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="We need to enable the hidden developer options menu:" android:justificationMode="inter_word" style="@style/TextAppearance.Compat.Notification.Line2" />
+        <TextView android:id="@id/ppkt_enableDeveloperOptions_listText" android:paddingLeft="12.0dp" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ppkt_enableDeveloperOptions_list" android:justificationMode="inter_word" style="@style/TextAppearance.Compat.Notification.Line2" />
+        <TextView android:id="@id/ppkt_enableDeveloperOptions_noteText" android:paddingBottom="5.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ppkt_enableDeveloperOptions_notification_note" android:justificationMode="inter_word" style="@style/TextAppearance.Compat.Notification.Line2" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:textSize="15.0dp" android:id="@id/developerOptionsPage1DismissButton" android:layout_width="0.0px" android:layout_height="match_parent" android:text="Dismiss" android:layout_weight="1.0" />
+        <Button android:textSize="15.0dp" android:id="@id/ppkt_enableDeveloperOptions_nextButton" android:layout_width="0.0px" android:layout_height="match_parent" android:text="Next" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,17 @@
+#!/data/data/nom.vrd/files/common/bin/busybox sh
+
+export BIN=$COMMON_FILESYSTEM/bin
+LIB=$COMMON_FILESYSTEM/lib
+TMP=$COMMON_FILESYSTEM/tmp
+PROC=$COMMON_FILESYSTEM/proc
+HOME=$COMMON_FILESYSTEM_HOME
+
+# Needed in the emulator (proot couldn't run the boot script though),
+cd $BIN
+
+# Cleanup,
+rm -r $TMP
+mkdir $TMP
+
+export TMPDIR=$TMP
+echo $STD_INPUT | LD_LIBRARY_PATH=$LIB HOME=$HOME eval $@

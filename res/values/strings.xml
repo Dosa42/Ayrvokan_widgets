@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_language">English</string>
+    <string name="app_name">NOMone Desktop</string>
+    <string name="common_google_play_services_enable_button">Enable</string>
+    <string name="common_google_play_services_enable_text">"%1$s won't work unless you enable Google Play services."</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text">"%1$s won't run without Google Play services, which are missing from your device."</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text">"%1$s won't run without Google Play services, which are not supported by your device."</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">"%1$s won't run unless you update Google Play services."</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">"%1$s won't run without Google Play services, which are currently updating."</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="phantom_process_killing_activity_label">Steps to disable phantom process killing</string>
+    <string name="ppkt_canYouSeeDeveloperOptions_list">"Ensure settings are closed (exit completely).
+Press \"Try again\"."</string>
+    <string name="ppkt_canYouSeeDeveloperOptions_note">If unsuccessful, go to developer options manually.</string>
+    <string name="ppkt_canYouSeeDeveloperOptions_text">The Developer options menu should be open now. If not:</string>
+    <string name="ppkt_canYouSeeDeveloperOptions_title">Can you see the developer options?</string>
+    <string name="ppkt_closedPort">Port is not being listened to.</string>
+    <string name="ppkt_connectionFailed_text">You probably dismissed the authentication dialog. Would you like to try again?</string>
+    <string name="ppkt_connectionFailed_title">Connection Failed!</string>
+    <string name="ppkt_connectionPort_codeHint">e.g: 43359</string>
+    <string name="ppkt_connectionPort_list">From \"IP address &amp; Port\", read the 5-digit number after the colon (\":\"). Enter it below and press \"Next.\"</string>
+    <string name="ppkt_connectionPort_note">Note: Accuracy is crucial; any mistake can lead to failure.</string>
+    <string name="ppkt_connectionPort_text">After having enabled wireless debugging, we need to connect to the device to disable phantom process killing:</string>
+    <string name="ppkt_connectionPort_title">Connection Port</string>
+    <string name="ppkt_enableDeveloperOptions_developerOptionsNotEnabled">Developer options not enabled yet.</string>
+    <string name="ppkt_enableDeveloperOptions_list">"Find \"Build number\" and tap it 7 times. If you can't find it, look for \"Software information\", \"Build number\" should be inside."</string>
+    <string name="ppkt_enableDeveloperOptions_note">"Note: Settings may vary. E.g., on Xiaomi, it's \"MIUI version\" instead of \"Build number\". Press \"Next\" when you are done."</string>
+    <string name="ppkt_enableDeveloperOptions_notification_note">"Note: Settings may vary. E.g., on Xiaomi, it's \"MIUI version\" instead of \"Build number\". Press this notification's \"Next\" when you are done."</string>
+    <string name="ppkt_enableDeveloperOptions_text">We need to enable the hidden developer options menu:</string>
+    <string name="ppkt_enableDeveloperOptions_title">Enable Developer Options</string>
+    <string name="ppkt_enableWirelessDebugging_list">"Scroll down to \"Wireless debugging\" and enable it.
+Tap the \"Wireless debugging\" option itself (not the toggle button) to enter the wireless debugging menu."</string>
+    <string name="ppkt_enableWirelessDebugging_note">Note: you must be connected to a wifi network to enable wireless debugging.</string>
+    <string name="ppkt_enableWirelessDebugging_text">Now, enable wireless debugging:</string>
+    <string name="ppkt_enableWirelessDebugging_title">Enable Wireless Debugging</string>
+    <string name="ppkt_exitTutorial">Exit tutorial?</string>
+    <string name="ppkt_fixingFailed_text">"Unexpected problem, couldn't fix phantom process killing. Please drop us a line at:
+
+"<a href="mailto:desktop.support@nomone.com?subject=Phantom Process Killing Fixing Failed">desktop.support@nomone.com</a>"
+
+mentioning your device model. Sorry for the inconvenience."</string>
+    <string name="ppkt_fixingFailed_title">Fixing Failed!</string>
+    <string name="ppkt_fixingSuccessful_text">Congratulations! Phantom process killing disabled!</string>
+    <string name="ppkt_fixingSuccessful_title">Fix Applied!</string>
+    <string name="ppkt_giveUp">Give up</string>
+    <string name="ppkt_goToDeveloperOptions_list">Press \"Next\" to open developer options.</string>
+    <string name="ppkt_goToDeveloperOptions_text" />
+    <string name="ppkt_goToDeveloperOptions_title">Open Developer Options</string>
+    <string name="ppkt_introduction_firstButton">Skip tutorial</string>
+    <string name="ppkt_introduction_list">"Since Android 12, a maximum number of phantom processes was set system-wide.
+Linux starts numerous processes during usage, which can surpass the limit.
+Exceeding the limit causes the system to stop (kill) some processes, potentially leading to Linux crashing."</string>
+    <string name="ppkt_introduction_note">Fortunately, we can disable this behavior. This tutorial will walk you through the steps.</string>
+    <string name="ppkt_introduction_text">A phantom process is a child process started by the app.</string>
+    <string name="ppkt_introduction_title">Phantom Process Killing</string>
+    <string name="ppkt_invalidPort">Invalid port number.</string>
+    <string name="ppkt_next">Next</string>
+    <string name="ppkt_no">No</string>
+    <string name="ppkt_noDeveloperOptions_text">"Critical problem, couldn't open the developer options page. Can't proceed with the tutorial. Please drop us a line at:
+
+"<a href="mailto:desktop.support@nomone.com?subject=No Developer Options Page">desktop.support@nomone.com</a>"
+
+mentioning your device model. Sorry for the inconvenience."</string>
+    <string name="ppkt_noDeveloperOptions_title">No Developer Options!</string>
+    <string name="ppkt_noDeviceInfo_text">"Critical problem, couldn't open the device info settings page. Can't proceed with the tutorial. Please drop us a line at:
+
+"<a href="mailto:desktop.support@nomone.com?subject=No Device Info Page">desktop.support@nomone.com</a>"
+
+mentioning your device model. Sorry for the inconvenience."</string>
+    <string name="ppkt_noDeviceInfo_title">No Device Info!</string>
+    <string name="ppkt_noPort">No port number specified.</string>
+    <string name="ppkt_ok">Ok</string>
+    <string name="ppkt_pairCode_InvalidPairingCode">Invalid pairing code.</string>
+    <string name="ppkt_pairCode_codeHint">e.g: 590621</string>
+    <string name="ppkt_pairCode_list">"Find and press \"Pair device with pairing code\".
+Enter the Wi-Fi pairing code below and press \"Next.\""</string>
+    <string name="ppkt_pairCode_note">"Note: You can't copy &amp; paste; you must manually enter the code. Keep the pairing window open for the process to work."</string>
+    <string name="ppkt_pairCode_text">"Just a little bit more! Android won't allow us to connect unless we are paired (authorized):"</string>
+    <string name="ppkt_pairCode_title">Pair Device</string>
+    <string name="ppkt_pairPort_list">Enter the 5-digit number after the colon (\":\") below and press \"Next\".</string>
+    <string name="ppkt_pairPort_note">Note: if you are asked to authorize the connection, please do!</string>
+    <string name="ppkt_pairPort_portHint">e.g: 43359</string>
+    <string name="ppkt_pairPort_text">Finally, we need the pairing port number:</string>
+    <string name="ppkt_pairPort_title">Pairing Port</string>
+    <string name="ppkt_pairingFailed_text">You probably entered the wrong pairing code. Would you like to try again?</string>
+    <string name="ppkt_pairingFailed_title">Pairing Failed!</string>
+    <string name="ppkt_previous">Previous</string>
+    <string name="ppkt_prompt_button_later">Remind me&lt;br>later</string>
+    <string name="ppkt_prompt_button_never">"DON'T REMIND ME"</string>
+    <string name="ppkt_prompt_button_start">Start&lt;br>tutorial</string>
+    <string name="ppkt_prompt_message_linuxCrashed">It looks like Linux crashed the last time. This &lt;strong>could&lt;/strong> be the result of not fixing the &lt;em>phantom process killing&lt;/em> issue. Would you like a step by step tutorial to fix it?</string>
+    <string name="ppkt_prompt_message_warning">Android may terminate this app without notice due to &lt;em>phantom process killing&lt;/em>.&lt;br>Have you fixed the phantom process killing issue? Would you like a step by step tutorial to fix it?</string>
+    <string name="ppkt_prompt_title">Phantom Process Killing Issue</string>
+    <string name="ppkt_splitScreenAndNotifications_text">"To view tutorial instructions while applying them, we'll split the screen into two halves: one for system settings, and the other for instructions.
+
+On some devices, the settings app may not open in split-screen mode. If so, stay tuned for updates; we'll provide an alternative method soon if Allah wills."</string>
+    <string name="ppkt_splitScreenAndNotifications_title">Split Screen</string>
+    <string name="ppkt_tryAgain">Try again</string>
+    <string name="ppkt_wirelessDebuggingAlreadyEnabled_text">"You seem to be a developer! We'll now attempt to connect and fix the phantom process killing issue. Please authorize the connection if prompted."</string>
+    <string name="ppkt_wirelessDebuggingAlreadyEnabled_title">Wireless Debugging Already Enabled!</string>
+    <string name="ppkt_yes">Yes</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

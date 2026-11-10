@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:textSelectHandleLeft">@mipmap/text_handle</item>
+        <item name="android:textSelectHandleRight">@mipmap/text_handle</item>
+        <item name="android:textSelectHandle">@mipmap/text_handle</item>
+        <item name="android:colorPrimary">#323141</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

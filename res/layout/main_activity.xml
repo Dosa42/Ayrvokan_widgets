@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nomone.vr_desktop.Input.RootLayout android:id="@id/rootLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:keepScreenOn="true" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/toastLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:animateLayoutChanges="true" />
+    <com.nomone.vr_desktop.Input.PointerEventsHandlingView android:id="@id/pointerEventsHandlingView" android:focusableInTouchMode="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:defaultFocusHighlightEnabled="false" />
+</com.nomone.vr_desktop.Input.RootLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ppkt_list">
+        <item name="android:textSize">15.0dp</item>
+        <item name="android:paddingLeft">24.0dp</item>
+        <item name="android:paddingRight">15.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:justificationMode">inter_word</item>
+    </style>
+    <style name="ppkt_note">
+        <item name="android:textSize">15.0dp</item>
+        <item name="android:padding">15.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:justificationMode">inter_word</item>
+    </style>
+    <style name="ppkt_text">
+        <item name="android:textSize">15.0dp</item>
+        <item name="android:paddingLeft">15.0dp</item>
+        <item name="android:paddingTop">5.0dp</item>
+        <item name="android:paddingRight">15.0dp</item>
+        <item name="android:paddingBottom">5.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:justificationMode">inter_word</item>
+    </style>
+</resources>

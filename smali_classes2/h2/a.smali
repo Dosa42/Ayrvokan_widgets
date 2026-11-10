@@ -1,0 +1,36 @@
+.class public final Lh2/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field public final a:I
+
+.field public b:I
+
+.field public c:I
+
+.field public d:I
+
+.field public e:I
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, 0x1908
+
+    iput v0, p0, Lh2/a;->a:I
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lh2/a;->d:I
+
+    iput v0, p0, Lh2/a;->e:I
+
+    return-void
+.end method

@@ -1,4 +1,0 @@
-assets/linux/kali-minimal.tar.gz filter=lfs diff=lfs merge=lfs -text
-assets/vekil/gemma/embeddinggemma-2-text-270m.litertlm filter=lfs diff=lfs merge=lfs -text
-assets/dikte/desktop-runtime.tar.gz filter=lfs diff=lfs merge=lfs -text
-dist/ayrvokan-widgets-0.12.3.apk filter=lfs diff=lfs merge=lfs -text
