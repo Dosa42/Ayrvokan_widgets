@@ -209,7 +209,7 @@ final class LinuxRuntime {
         File secret = new File(directory, "management-key");
         if (!secret.isFile()) write(secret, java.util.UUID.randomUUID().toString() + "\n");
         File config = new File(directory, "config.yaml");
-        if (!config.isFile()) write(config, "config-version: 8\nserver:\n  host: \"127.0.0.1\"\n  port: 8317\nmanagement:\n  allow-remote: false\n  secret-key: \"\"\n  disable-control-panel: false\n  disable-auto-update-panel: true\naccess:\n  api-keys: []\noauth:\n  auth-dir: \"/root/.ayrvokan-cliproxy/auth\"\n");
+        if (!config.isFile()) write(config, "config-version: 8\nserver:\n  host: \"0.0.0.0\"\n  port: 8317\nmanagement:\n  allow-remote: true\n  secret-key: \"\"\n  disable-control-panel: false\n  disable-auto-update-panel: false\naccess:\n  api-keys: []\noauth:\n  auth-dir: \"/root/.ayrvokan-cliproxy/auth\"\n");
         JSONObject version;
         try (InputStream input = context.getAssets().open("cliproxy/version.json")) { version = new JSONObject(readAll(input)); }
         installAsset("cliproxy/cli-proxy-api", new File(root, "usr/local/bin/cli-proxy-api"), version.getString("sha256"), true);
