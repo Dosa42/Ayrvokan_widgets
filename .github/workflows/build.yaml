@@ -37,10 +37,10 @@ jobs:
           printf '%s  %s\n' '22df8695beb086945b9adb03c668888d5398eed8b24f11f9ad3ae93c38d7bb3a' 'assets/dikte/desktop-runtime.tar.gz' | sha256sum -c -
           printf '%s  %s\n' '2d079ee2f6f066b1f368e8d7c819f55214eaef1d0513b312321901f30ab286fb' 'assets/vekil/gemma/embeddinggemma-2-text-270m.litertlm' | sha256sum -c -
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "21"
 
       - name: Install host dependency
         run: |
