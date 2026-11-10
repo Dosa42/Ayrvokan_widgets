@@ -250,7 +250,7 @@ final class LinuxRuntime {
     }
 
     List<String> command(String... guestCommand) {
-        List<String> command = new ArrayList<>(Arrays.asList(nativeDir + "/libproot.so", "-0", "-r", root.getAbsolutePath(), "-b", "/dev", "-b", "/proc", "-b", "/sys", "-b", "/system", "-b", "/apex", "-b", new File(runtime, "tmp").getAbsolutePath() + ":/tmp", "--sysvipc", "-H", "-L", "-p", "--ashmem-memfd", "--kernel-release=" + System.getProperty("os.version"), "--link2symlink", "--kill-on-exit", "-w", "/root", "/usr/bin/env", "-i", "HOME=/root", "USER=root", "LOGNAME=root", "TERM=xterm-256color", "COLORTERM=truecolor", "LANG=C.UTF-8", "LC_ALL=C.UTF-8", "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"));
+        List<String> command = new ArrayList<>(Arrays.asList(nativeDir + "/libproot.so", "-0", "-r", root.getAbsolutePath(), "-b", "/dev", "-b", "/proc", "-b", "/sys", "-b", "/system", "-b", "/apex", "-b", "/storage", "-b", "/sdcard", "-b", "/data", "-b", "/vendor", "-b", "/product", "-b", "/odm", "-b", "/mnt", "-b", new File(runtime, "tmp").getAbsolutePath() + ":/tmp", "--sysvipc", "-H", "-L", "-p", "--ashmem-memfd", "--kernel-release=" + System.getProperty("os.version"), "--link2symlink", "--kill-on-exit", "-w", "/root", "/usr/bin/env", "-i", "HOME=/root", "USER=root", "LOGNAME=root", "TERM=xterm-256color", "COLORTERM=truecolor", "LANG=C.UTF-8", "LC_ALL=C.UTF-8", "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"));
         command.addAll(Arrays.asList(guestCommand));
         return command;
     }
