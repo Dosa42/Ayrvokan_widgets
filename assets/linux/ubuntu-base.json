@@ -1,0 +1,10 @@
+{
+  "name": "Ubuntu22.04Bare",
+  "version": "22.04.5 LTS",
+  "architecture": "arm64",
+  "asset": "linux/ubuntu-base-22.04.5-base-arm64.tar.gz",
+  "url": "https://cdimage.ubuntu.com/ubuntu-base/releases/22.04.5/release/ubuntu-base-22.04.5-base-arm64.tar.gz",
+  "sha256": "075d4abd2817a5023ab0a82f5cb314c5ec0aa64a9c0b40fd3154ca3bfdae979f",
+  "bytes": 27671306,
+  "runtime_directory": "Ubuntu22.04Bare"
+}

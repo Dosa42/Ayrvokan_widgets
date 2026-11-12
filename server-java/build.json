@@ -1,0 +1,15 @@
+{
+  "schema": "nomone.ubuntu-java-build/1",
+  "java_release": 8,
+  "android_min_api": 24,
+  "sources": {
+    "server-java/com/nomone/vr_desktop/runtime/UbuntuImage.java": "a2fac2d158b006a3ee3dceca7bdafbdb4048d944397aa39afd7f345ffb0bead4",
+    "server-java/com/nomone/vr_desktop/runtime/UbuntuRootfs.java": "545c6898b4c7a4d7576906e8ce994f071849a39ca386de014c886b37b2a77be7"
+  },
+  "smali": {
+    "smali_classes2/com/nomone/vr_desktop/runtime/UbuntuImage.smali": "8e6f46a83daa319142d69182f9f1ed66719461067f4fb61ac656c6345bd8a4ad",
+    "smali_classes2/com/nomone/vr_desktop/runtime/UbuntuRootfs$InstallTask.smali": "f7f433dcb487017bdb81a161dcc6f6aa5fd00afda155612e5f22fbced6105331",
+    "smali_classes2/com/nomone/vr_desktop/runtime/UbuntuRootfs$ResumeTask.smali": "18b5782b76317525d9300e28989d067cf4e27872bec91277cf999313d6259b18",
+    "smali_classes2/com/nomone/vr_desktop/runtime/UbuntuRootfs.smali": "ecfe143cb9e5df054a79f699b7a0fd38f7781ee3ac4eebd782876f95e4cf0e96"
+  }
+}

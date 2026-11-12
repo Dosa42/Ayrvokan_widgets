@@ -7,7 +7,7 @@ on:
       - linux-runtime-rework
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: nomone-touch-${{ github.ref }}
@@ -24,6 +24,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Bundle official Ubuntu Base rootfs on this branch
+        run: python3 .github/scripts/vendor-ubuntu.py
+
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -31,15 +34,25 @@ jobs:
 
       - name: Install build tools
         run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y busybox
           mkdir -p "$RUNNER_TEMP/apktool"
           curl --fail --location --retry 3 --output "$RUNNER_TEMP/apktool/apktool.jar" "https://github.com/iBotPeaches/Apktool/releases/download/v${APKTOOL_VERSION}/apktool_${APKTOOL_VERSION}.jar"
           printf '%s  %s\n' "$APKTOOL_SHA256" "$RUNNER_TEMP/apktool/apktool.jar" | sha256sum --check --strict
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;${ANDROID_BUILD_TOOLS}"
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;${ANDROID_BUILD_TOOLS}" "platforms;android-35"
+
+      - name: Verify Java bootstrap and install the real rootfs in integration tests
+        run: |
+          python3 .github/scripts/verify-ubuntu.py
+          python3 .github/scripts/test-ubuntu.py
+          mkdir -p "$RUNNER_TEMP/ubuntu-java"
+          javac --release 8 -Xlint:-options -cp "$ANDROID_HOME/platforms/android-35/android.jar" -d "$RUNNER_TEMP/ubuntu-java" server-java/com/nomone/vr_desktop/runtime/*.java
 
       - name: Build unsigned APK
         run: |
           mkdir -p dist
-          java -jar "$RUNNER_TEMP/apktool/apktool.jar" build . --output dist/nomone-touch-unsigned.apk
+          java -jar "$RUNNER_TEMP/apktool/apktool.jar" build . --force --output dist/nomone-touch-unsigned.apk
+          python3 .github/scripts/verify-ubuntu.py dist/nomone-touch-unsigned.apk
 
       - name: Configure signing
         env:

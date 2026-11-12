@@ -513,6 +513,21 @@
 
     .line 12
     :cond_1
+    iget-object v0, p0, Lq1/f;->b:Lcom/nomone/vr_desktop/LaunchActivity;
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2}, Lcom/google/android/gms/internal/play_billing/i0;->T(Landroid/content/Context;Z)V
+
+    invoke-static {v0, p0}, Lcom/nomone/vr_desktop/runtime/UbuntuRootfs;->ensureInstalled(Landroid/app/Activity;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :ubuntu_ready
+
+    return-object v1
+
+    :ubuntu_ready
     const-string v0, "Linux image deployed"
 
     .line 13
@@ -956,26 +971,13 @@
 .method public static i(Lcom/nomone/vr_desktop/LaunchActivity;)Z
     .locals 1
 
-    .line 1
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/google/android/gms/internal/play_billing/i0;->T(Landroid/content/Context;Z)V
 
-    new-instance p0, Ljava/io/File;
+    const/4 v0, 0x1
 
-    const-string v0, "Ubuntu22.04Bare"
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/play_billing/i0;->P(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Ljava/io/File;->exists()Z
-
-    move-result p0
-
-    return p0
+    return v0
 .end method
 
 .method public static native nativeGetMouseX()I

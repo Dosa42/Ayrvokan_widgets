@@ -2,14 +2,19 @@
 unset LD_LIBRARY_PATH
 unset LD_PRELOAD
 
-#export mesa_glthread=true
-export MOZ_FAKE_NO_SANDBOX=1  # Needed for firefox to run.
-export XKL_XMODMAP_DISABLE=1  # Needed for gnome to start.
-export CHROMIUM_FLAGS="--no-sandbox --test-type --disable-low-res-tiling --enable-low-end-device-mode --num-raster-threads=$CORES_COUNT --disable-composited-antialiasing" # Needed for chromium to start and perform well.
-#--disable-smooth-scrolling
+if [ -f /NOMone/UbuntuBase22.04 ]; then
+    export HOME=/root
+    mkdir -p /root /tmp /run
+    cd /root || exit 1
+    /NOMone/startup.sh &
+    exec /NOMone/ProotClient
+fi
+
+export MOZ_FAKE_NO_SANDBOX=1
+export XKL_XMODMAP_DISABLE=1
+export CHROMIUM_FLAGS="--no-sandbox --test-type --disable-low-res-tiling --enable-low-end-device-mode --num-raster-threads=$CORES_COUNT --disable-composited-antialiasing"
 export PATH=$PATH:/usr/games
 
-# Limit total memory used (to prevent crashes on Android 12+),
 echo "------------------------------"
 echo "=============================="
 echo "------------------------------"
@@ -22,31 +27,23 @@ if [[ "$VIRTUAL_MEM_LIMIT" -gt 0 ]] ; then
     ulimit -v $VIRTUAL_MEM_LIMIT
 fi
 
-# Fix terminal blabbering about groups upon opening,
 touch ~/.hushlogin
 
-# Fix "The permission of the setuid helper is not correct" (required for gnome-software and software-properties-gtk),
 chmod u+s /usr/lib/dbus-1.0/dbus-daemon-launch-helper
 
-# Cleanup after dbus,
 rm /run/dbus/system_bus_socket
 rm /run/dbus/pid
 mkdir -p /var/lib/dbus/
 
-# Prepare system image,
-#rm /NOMone/SystemReady
 if [ ! -f "/NOMone/SystemReady" ]; then
     /NOMone/prepareDebianImage.sh
 fi
 
-# Prepare start up script,
-#rm /NOMone/startup.sh
 if [ ! -f /NOMone/startup.sh ]; then
     cp /NOMone/defaultStartup.sh /NOMone/startup.sh
     chmod +x /NOMone/startup.sh
 fi
 
-# Run the startup script as the correct user,
 if [[ "$IMAGE_NAME" != "Ubuntu22.04Bare" && "$RUN_AS_ROOT" != "1" ]]; then
     USERNAME="NOM1"
     if id "$USERNAME" &>/dev/null; then
@@ -67,7 +64,5 @@ else
     /NOMone/startup.sh &
 fi
 
-#(while sleep 3; do cat /proc/$$/status; done) &
 
-# Start our client,
 /NOMone/ProotClient
