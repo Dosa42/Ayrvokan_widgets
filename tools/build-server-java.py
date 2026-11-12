@@ -21,11 +21,16 @@ with tempfile.TemporaryDirectory(prefix='nomone-java-') as temporary:
     subprocess.run(['d2j-baksmali', '-f', '-o', work / 'smali', work / 'dex/classes.dex'], check=True)
     destination = root / 'smali_classes2/com/nomone/vr_desktop/runtime'
     destination.mkdir(parents=True, exist_ok=True)
+    previous = root / 'server-java/build.json'
+    if previous.is_file():
+        for name in json.loads(previous.read_text()).get('smali', {}):
+            (root / name).unlink(missing_ok=True)
     for old in destination.glob('Ubuntu*.smali'):
         old.unlink()
     outputs = []
     for path in sorted((work / 'smali').rglob('*.smali')):
         text = '\n'.join(line for line in path.read_text().splitlines() if not line.lstrip().startswith('#')) + '\n'
+        text = text.replace('\\u002d', '-')
         text = re.sub(r'(const/high16\s+[vp]\d+,\s*)(-?(?:0x[\da-fA-F]+|\d+))', lambda match: match[1] + str(int(match[2], 0) << 16), text)
         target = root / 'smali_classes2' / path.relative_to(work / 'smali')
         target.parent.mkdir(parents=True, exist_ok=True)

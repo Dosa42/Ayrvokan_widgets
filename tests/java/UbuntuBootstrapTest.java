@@ -1,6 +1,6 @@
 import com.nomone.vr_desktop.runtime.UbuntuImage;
 import com.nomone.vr_desktop.runtime.UbuntuRootfs;
-import com.nomone.vr_desktop.Applications.LauncherApplication;
+import com.nomone.vr_desktop.runtime.UbuntuRuntime;
 import android.app.Activity;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -10,16 +10,13 @@ public class UbuntuBootstrapTest {
         q1.f scene = new q1.f();
         if (UbuntuRootfs.ensureInstalled(activity, scene)) { throw new AssertionError("First click did not schedule installation"); }
         for (int i = 0; i < 20; i++) { UbuntuRootfs.ensureInstalled(activity, scene); }
-        if (!LauncherApplication.resumed.await(60, TimeUnit.SECONDS)) { throw new AssertionError("First click never resumed Linux"); }
-        if (LauncherApplication.launches != 1 || activity.posted != 1 || !UbuntuImage.ready(activity.files)) {
+        if (!UbuntuRuntime.started.await(60, TimeUnit.SECONDS)) { throw new AssertionError("First click never resumed Linux"); }
+        if (UbuntuRuntime.starts != 1 || activity.posted != 1 || !UbuntuImage.ready(activity.files)) {
             throw new AssertionError("Installation did not resume exactly once");
         }
-        if (!LauncherApplication.command.equals("Launch:com.nomone.vr_desktop.Applications.Linux.LinuxApplication")) {
-            throw new AssertionError(LauncherApplication.command);
-        }
-        if (!UbuntuRootfs.ensureInstalled(activity, scene) || LauncherApplication.launches != 1) {
+        if (!UbuntuRootfs.ensureInstalled(activity, scene) || UbuntuRuntime.starts != 1) {
             throw new AssertionError("Second click scheduled another installation");
         }
-        System.out.println("Ubuntu bootstrap integration passed: first-click async installation, one automatic launcher resume, warm start");
+        System.out.println("Ubuntu bootstrap integration passed: first-click async installation, one direct runtime-service start, warm start");
     }
 }

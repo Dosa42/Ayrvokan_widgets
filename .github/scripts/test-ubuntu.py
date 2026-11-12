@@ -23,7 +23,7 @@ with tempfile.TemporaryDirectory(prefix='nomone-ubuntu-') as temporary:
         (files / 'common/bin/busybox').symlink_to(native / 'lib_bin_busybox.so')
     classes = work / 'classes'
     classes.mkdir()
-    sources = sorted((root / 'server-java').rglob('*.java')) + sorted((root / 'tests/java').rglob('*.java'))
+    sources = [root / 'server-java/com/nomone/vr_desktop/runtime' / name for name in ['UbuntuImage.java', 'UbuntuRootfs.java']] + sorted((root / 'tests/java').rglob('*.java'))
     subprocess.run(['javac', '--release', '8', '-Xlint:-options', '-d', classes, *sources], check=True)
     archive = root / 'assets/linux/ubuntu-base-22.04.5-base-arm64.tar.gz'
     subprocess.run(['java', '-cp', classes, 'UbuntuImageTest', work / 'image-files', native, archive], check=True)

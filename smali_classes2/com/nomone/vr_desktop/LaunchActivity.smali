@@ -3,15 +3,12 @@
 .source "SourceFile"
 
 
-# static fields
 .field public static final synthetic b:I
 
 
-# instance fields
 .field public a:Lq1/x;
 
 
-# direct methods
 .method public constructor <init>()V
     .locals 0
 
@@ -21,7 +18,6 @@
 .end method
 
 
-# virtual methods
 .method public final a()Lq1/x;
     .locals 1
 
@@ -1784,44 +1780,6 @@
     .line 52
     .line 53
     .line 54
-    new-instance v0, Landroid/os/Handler;
-
-    .line 55
-    .line 56
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    .line 57
-    .line 58
-    .line 59
-    move-result-object v1
-
-    .line 60
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    .line 61
-    .line 62
-    .line 63
-    new-instance v1, Lo0/a;
-
-    .line 64
-    .line 65
-    const/4 v2, 0x2
-
-    .line 66
-    invoke-direct {v1, v2}, Lo0/a;-><init>(I)V
-
-    .line 67
-    .line 68
-    .line 69
-    const-wide/16 v2, 0x1f4
-
-    .line 70
-    .line 71
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 72
-    .line 73
-    .line 74
     return-void
 .end method
 

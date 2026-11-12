@@ -1,0 +1,8 @@
+{
+  "schema": "nomone.pty-native/1",
+  "abi": "arm64-v8a",
+  "minimum_api": 24,
+  "page_alignment": 16384,
+  "source_sha256": "35c8034bd757e84d27be3e4e5645c078ccb79edc13bba68e5f3ebddba203634d",
+  "binary_sha256": "9c71d652250d3ba941c209ef98de21f1222623b01405d52a017b3769feee5ed4"
+}

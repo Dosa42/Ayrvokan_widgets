@@ -17,7 +17,7 @@
     return-void
 .end method
 
-.method private static varargs command(Ljava/io/File;[Ljava/lang/String;)V
+.method static varargs command(Ljava/io/File;[Ljava/lang/String;)V
   .annotation system Ldalvik/annotation/Throws;
     value = {
       Ljava/io/IOException;,

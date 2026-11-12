@@ -39,10 +39,24 @@ jobs:
           mkdir -p "$RUNNER_TEMP/apktool"
           curl --fail --location --retry 3 --output "$RUNNER_TEMP/apktool/apktool.jar" "https://github.com/iBotPeaches/Apktool/releases/download/v${APKTOOL_VERSION}/apktool_${APKTOOL_VERSION}.jar"
           printf '%s  %s\n' "$APKTOOL_SHA256" "$RUNNER_TEMP/apktool/apktool.jar" | sha256sum --check --strict
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;${ANDROID_BUILD_TOOLS}" "platforms;android-35"
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "build-tools;${ANDROID_BUILD_TOOLS}" "platforms;android-35" "ndk;27.2.12479018"
+
+      - name: Build native Android terminal and test PTY behavior
+        run: |
+          export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.2.12479018"
+          python3 tools/build-pty.py
+          python3 .github/scripts/test-pty.py
+          python3 -m venv "$RUNNER_TEMP/terminal-tests"
+          "$RUNNER_TEMP/terminal-tests/bin/pip" install websockets==15.0.1
+          "$RUNNER_TEMP/terminal-tests/bin/python" .github/scripts/test-terminal.py
+          "$RUNNER_TEMP/terminal-tests/bin/python" .github/scripts/test-files.py
+          python3 .github/scripts/verify-runtime.py
 
       - name: Verify Java bootstrap and install the real rootfs in integration tests
         run: |
+          python3 .github/scripts/verify-assets.py
+          python3 .github/scripts/verify-ssh.py
+          python3 .github/scripts/test-ssh.py
           python3 .github/scripts/verify-ubuntu.py
           python3 .github/scripts/test-ubuntu.py
           mkdir -p "$RUNNER_TEMP/ubuntu-java"
@@ -53,6 +67,9 @@ jobs:
           mkdir -p dist
           java -jar "$RUNNER_TEMP/apktool/apktool.jar" build . --force --output dist/nomone-touch-unsigned.apk
           python3 .github/scripts/verify-ubuntu.py dist/nomone-touch-unsigned.apk
+          python3 .github/scripts/verify-runtime.py dist/nomone-touch-unsigned.apk
+          python3 .github/scripts/verify-assets.py dist/nomone-touch-unsigned.apk
+          python3 .github/scripts/verify-ssh.py dist/nomone-touch-unsigned.apk
 
       - name: Configure signing
         env:

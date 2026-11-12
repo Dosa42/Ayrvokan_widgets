@@ -1,0 +1,30 @@
+{
+  "schema": "nomone.ssh-runtime/1",
+  "distribution": "Ubuntu22.04 ARM64",
+  "installation": "bundled runtime payload; not dpkg installation",
+  "asset": "linux/ssh-runtime-arm64.tar.gz",
+  "sha256": "2c229744faa25005aa574416126687565ef1d8fc072786f8451aa82802576975",
+  "packages": [
+    {
+      "name": "dropbear-bin",
+      "version": "2020.81-5ubuntu0.1",
+      "file": "pool/universe/d/dropbear/dropbear-bin_2020.81-5ubuntu0.1_arm64.deb",
+      "sha256": "0c10216a285c2e1608824ea5b45f070c94f120167d5882010caea776a13aabb4",
+      "url": "https://ports.ubuntu.com/ubuntu-ports/pool/universe/d/dropbear/dropbear-bin_2020.81-5ubuntu0.1_arm64.deb"
+    },
+    {
+      "name": "libtomcrypt1",
+      "version": "1.18.2-5",
+      "file": "pool/universe/libt/libtomcrypt/libtomcrypt1_1.18.2-5_arm64.deb",
+      "sha256": "27fec2d868789cc52b61313f8ae46d1f2e30fe176ae51957939038526cf06629",
+      "url": "https://ports.ubuntu.com/ubuntu-ports/pool/universe/libt/libtomcrypt/libtomcrypt1_1.18.2-5_arm64.deb"
+    },
+    {
+      "name": "libtommath1",
+      "version": "1.2.0-6build3",
+      "file": "pool/main/libt/libtommath/libtommath1_1.2.0-6build3_arm64.deb",
+      "sha256": "87e2fc4d2ac7b03338ac47cf340d599b75a0ca66620cdefff3ae12cb0f443067",
+      "url": "https://ports.ubuntu.com/ubuntu-ports/pool/main/libt/libtommath/libtommath1_1.2.0-6build3_arm64.deb"
+    }
+  ]
+}

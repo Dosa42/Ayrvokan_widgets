@@ -117,6 +117,9 @@
     <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
     <uses-feature android:name="android.hardware.sensor.heartrate" android:required="false"/>
     <application android:allowBackup="false" android:appCategory="game" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:banner="@mipmap/tv_banner" android:extractNativeLibs="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.nomone.vr_desktop.MyApplication" android:requestLegacyExternalStorage="true" android:resizeableActivity="true" android:roundIcon="@mipmap/ic_launcher_round" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <service android:name="com.nomone.vr_desktop.runtime.UbuntuRuntimeService" android:exported="false" android:process=":ubuntu" android:stopWithTask="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User-started persistent Ubuntu interactive terminal session"/>
+        </service>
         <activity android:alwaysRetainTaskState="true" android:configChanges="mcc|keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.nomone.vr_desktop.LaunchActivity" android:resizeableActivity="true" android:screenOrientation="landscape">
             <meta-data android:name="android.game_mode_config" android:resource="@xml/game_mode_config"/>
             <meta-data android:name="com.samsung.android.dex.transient_bar_delay" android:value="0"/>

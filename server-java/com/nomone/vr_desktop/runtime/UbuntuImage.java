@@ -126,7 +126,7 @@ public final class UbuntuImage {
         return result.toString();
     }
 
-    private static void command(File executable, String... arguments) throws IOException, InterruptedException {
+    static void command(File executable, String... arguments) throws IOException, InterruptedException {
         String[] command = new String[arguments.length + 1];
         command[0] = executable.getAbsolutePath();
         System.arraycopy(arguments, 0, command, 1, arguments.length);

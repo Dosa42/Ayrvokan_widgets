@@ -528,6 +528,17 @@
     return-object v1
 
     :ubuntu_ready
+    iget-object v0, p0, Lq1/f;->b:Lcom/nomone/vr_desktop/LaunchActivity;
+
+    invoke-static {v0}, Lcom/nomone/vr_desktop/runtime/UbuntuRuntime;->startIfBare(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :ubuntu_legacy
+
+    return-object v1
+
+    :ubuntu_legacy
     const-string v0, "Linux image deployed"
 
     .line 13
