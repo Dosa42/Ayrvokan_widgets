@@ -38,7 +38,7 @@ if len(sys.argv) > 1:
         if apk.read('lib/arm64-v8a/libnomone_pty.so') != native.read_bytes():
             raise RuntimeError('APK PTY library does not match the native build')
         dex = apk.read('classes2.dex')
-        for name in [b'UbuntuRuntimeService;', b'PtySession;', b'PtyNative;', b'TerminalServer;', b'TerminalSessions;', b'FileWorkspace;', b'http://127.0.0.1:8766/terminal', b'startIfBare']:
+        for name in [b'UbuntuRuntimeService;', b'PtySession;', b'PtyNative;', b'TerminalServer;', b'TerminalSessions;', b'FileWorkspace;', b'MachineEngine;', b'http://127.0.0.1:8766/terminal', b'startIfBare']:
             if name not in dex:
                 raise RuntimeError('APK runtime class missing: ' + str(name))
 print(json.dumps({'runtime_process': ':ubuntu', 'native_abi': 'arm64-v8a', 'activity_exit_removed': True, 'apk_checked': len(sys.argv) > 1}))

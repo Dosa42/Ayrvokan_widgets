@@ -17,7 +17,7 @@
     }
   .end annotation
   .registers 3
-  .line 34
+  .line 35
     new-instance v0, Ljava/io/IOException;
     const-string v1, "Nieuwe sessies zijn niet beschikbaar"
     invoke-direct { v0, v1 }, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -29,10 +29,10 @@
 
 .method public find(Ljava/lang/String;)Lcom/nomone/vr_desktop/runtime/TerminalServer$State;
   .registers 4
-  .line 31
+  .line 32
     invoke-interface { p0 }, Lcom/nomone/vr_desktop/runtime/TerminalServer$Provider;->current()Lcom/nomone/vr_desktop/runtime/TerminalServer$State;
     move-result-object v0
-  .line 32
+  .line 33
     if-eqz p1, :L1
     invoke-virtual { p1 }, Ljava/lang/String;->isEmpty()Z
     move-result v1
@@ -50,7 +50,7 @@
 
 .method public list()[Lcom/nomone/vr_desktop/runtime/TerminalServer$State;
   .registers 4
-  .line 35
+  .line 36
     const/4 v0, 1
     new-array v0, v0, [Lcom/nomone/vr_desktop/runtime/TerminalServer$State;
     const/4 v1, 0
@@ -67,20 +67,20 @@
     }
   .end annotation
   .registers 3
-  .line 37
+  .line 38
     invoke-interface { p0, p1 }, Lcom/nomone/vr_desktop/runtime/TerminalServer$Provider;->find(Ljava/lang/String;)Lcom/nomone/vr_desktop/runtime/TerminalServer$State;
     move-result-object p1
-  .line 38
+  .line 39
     if-eqz p1, :L0
     iget-object v0, p1, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->session:Lcom/nomone/vr_desktop/runtime/PtySession;
     if-eqz v0, :L0
-  .line 39
+  .line 40
     iget-object p1, p1, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->session:Lcom/nomone/vr_desktop/runtime/PtySession;
     invoke-virtual { p1 }, Lcom/nomone/vr_desktop/runtime/PtySession;->stop()V
-  .line 40
+  .line 41
     return-void
   :L0
-  .line 38
+  .line 39
     new-instance p1, Ljava/io/IOException;
     const-string v0, "Onbekende terminalsessie"
     invoke-direct { p1, v0 }, Ljava/io/IOException;-><init>(Ljava/lang/String;)V

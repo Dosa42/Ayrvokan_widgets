@@ -26,3 +26,6 @@ De twee Java-integratietests gebruiken het echte Ubuntu-archief. Ze controleren 
 De branchworkflow downloadt het vastgelegde officiële archief wanneer het nog niet in de checkout staat en commit het naar `linux-runtime-rework`. Vervolgens test en bouwt hij de APK. De geteste archivebron is:
 
 https://cdimage.ubuntu.com/ubuntu-base/releases/22.04.5/release/ubuntu-base-22.04.5-base-arm64.tar.gz
+
+
+The browser also includes the runtime monitor and read-only Ubuntu machine-engine panel. Codex can submit explicit argv orders independently of interactive Bash. Persistent records, output, checklist states and the HTTP protocol are documented in [ENGINE.md](ENGINE.md). The AI adapter and CLIProxyAPI configuration remain later work.

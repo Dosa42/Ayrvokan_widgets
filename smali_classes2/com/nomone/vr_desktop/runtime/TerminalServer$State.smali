@@ -22,7 +22,7 @@
 
 .method public constructor <init>(Ljava/lang/String;Lcom/nomone/vr_desktop/runtime/PtySession;Ljava/lang/String;)V
   .registers 10
-  .line 51
+  .line 52
     const/4 v4, 0
     const-string v5, ""
     move-object v0, p0
@@ -30,24 +30,24 @@
     move-object v2, p2
     move-object v3, p3
     invoke-direct/range { v0 .. v5 }, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;-><init>(Ljava/lang/String;Lcom/nomone/vr_desktop/runtime/PtySession;Ljava/lang/String;Lcom/nomone/vr_desktop/runtime/PtySession;Ljava/lang/String;)V
-  .line 52
+  .line 53
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/nomone/vr_desktop/runtime/PtySession;Ljava/lang/String;Lcom/nomone/vr_desktop/runtime/PtySession;Ljava/lang/String;)V
   .registers 6
-  .line 54
-    invoke-direct { p0 }, Ljava/lang/Object;-><init>()V
   .line 55
-    iput-object p1, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->id:Ljava/lang/String;
+    invoke-direct { p0 }, Ljava/lang/Object;-><init>()V
   .line 56
-    iput-object p2, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->session:Lcom/nomone/vr_desktop/runtime/PtySession;
+    iput-object p1, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->id:Ljava/lang/String;
   .line 57
-    iput-object p3, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->error:Ljava/lang/String;
+    iput-object p2, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->session:Lcom/nomone/vr_desktop/runtime/PtySession;
   .line 58
-    iput-object p4, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->ssh:Lcom/nomone/vr_desktop/runtime/PtySession;
+    iput-object p3, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->error:Ljava/lang/String;
   .line 59
-    iput-object p5, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->sshError:Ljava/lang/String;
+    iput-object p4, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->ssh:Lcom/nomone/vr_desktop/runtime/PtySession;
   .line 60
+    iput-object p5, p0, Lcom/nomone/vr_desktop/runtime/TerminalServer$State;->sshError:Ljava/lang/String;
+  .line 61
     return-void
 .end method

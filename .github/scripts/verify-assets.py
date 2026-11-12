@@ -7,7 +7,7 @@ import zipfile
 
 root = Path(__file__).resolve().parents[2]
 paths = [name for name in subprocess.check_output(['git', 'ls-files', '-z', '--', 'assets'], cwd=root, text=True).split('\0') if name]
-paths = sorted(set(paths) | {'assets/terminal/' + name for name in ['index.html', 'app.js', 'files.js', 'style.css', 'xterm.js', 'xterm.css', 'addon-fit.js', 'vendor.json', 'LICENSE-xterm.txt', 'LICENSE-addon-fit.txt']})
+paths = sorted(set(paths) | {'assets/terminal/' + name for name in ['index.html', 'app.js', 'files.js', 'control.js', 'style.css', 'xterm.js', 'xterm.css', 'addon-fit.js', 'vendor.json', 'LICENSE-xterm.txt', 'LICENSE-addon-fit.txt']})
 paths = sorted(set(paths) | {'assets/linux/' + name for name in ['ssh-runtime-arm64.tar.gz', 'ssh-runtime.json', 'ssh-authorized-key.pub']})
 missing = [name for name in paths if not (root / name).is_file()]
 if missing:

@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public final class TerminalServer implements Closeable {
+    public interface Control { String request(String method, String path, String body) throws Exception; }
     public interface Assets { byte[] read(String path) throws IOException; }
     public interface Provider {
         State current();
@@ -60,6 +61,7 @@ public final class TerminalServer implements Closeable {
         }
     }
 
+    private final Control control;
     private final FileWorkspace files;
     private final Assets assets;
     private final Provider provider;
@@ -77,6 +79,11 @@ public final class TerminalServer implements Closeable {
     }
 
     public TerminalServer(int port, Assets assets, Provider provider, FileWorkspace files) throws IOException {
+        this(port, assets, provider, files, null);
+    }
+
+    public TerminalServer(int port, Assets assets, Provider provider, FileWorkspace files, Control control) throws IOException {
+        this.control = control;
         this.files = files;
         this.assets = assets;
         this.provider = provider;
@@ -120,6 +127,19 @@ public final class TerminalServer implements Closeable {
             for (int i = 1; i < lines.length; i++) {
                 int split = lines[i].indexOf(':');
                 if (split > 0) headers.put(lines[i].substring(0, split).trim().toLowerCase(java.util.Locale.ROOT), lines[i].substring(split + 1).trim());
+            }
+            if (control != null && uri.getPath().startsWith("/control/")) {
+                ByteArrayOutputStream body = new ByteArrayOutputStream();
+                long remaining = Long.parseLong(headers.getOrDefault("content-length", "0"));
+                byte[] buffer = new byte[16384];
+                while (remaining > 0) {
+                    int count = input.read(buffer, 0, (int) Math.min(buffer.length, remaining));
+                    if (count < 0) throw new EOFException();
+                    body.write(buffer, 0, count); remaining -= count;
+                }
+                String result = control.request(first[0], uri.getPath(), new String(body.toByteArray(), StandardCharsets.UTF_8));
+                response(output, 200, "application/json", result.getBytes(StandardCharsets.UTF_8), first[0].equals("HEAD"));
+                return;
             }
             if (files != null && uri.getPath().startsWith("/files/")) {
                 String result;
@@ -193,7 +213,7 @@ public final class TerminalServer implements Closeable {
             String path = uri.getPath();
             if (path.equals("/") || path.equals("/terminal") || path.equals("/terminal/")) path = "/terminal/index.html";
             String name = path.startsWith("/terminal/") ? path.substring(10) : "";
-            if (!Arrays.asList("index.html", "app.js", "style.css", "xterm.js", "xterm.css", "addon-fit.js", "files.js").contains(name)) {
+            if (!Arrays.asList("index.html", "app.js", "style.css", "xterm.js", "xterm.css", "addon-fit.js", "files.js", "control.js").contains(name)) {
                 response(output, 404, "text/plain", "Not found".getBytes(StandardCharsets.UTF_8), first[0].equals("HEAD"));
                 return;
             }

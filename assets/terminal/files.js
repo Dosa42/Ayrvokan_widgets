@@ -291,7 +291,7 @@ document.getElementById('file-remove').addEventListener('click', () => submitFil
 const panelResizer = document.getElementById('panel-resizer');
 let preferredFileWidth = Number(savedFileSetting('ubuntu-files-width', String(Math.min(580, Math.max(340, Math.round(innerWidth * .24)))))) || 390;
 function setFileWidth(width, remember = false) {
-    const maximum = Math.min(760, Math.max(280, innerWidth - 340));
+    const maximum = Math.min(760, Math.max(280, innerWidth - (innerWidth >= 1400 ? 804 : 340)));
     const value = Math.min(maximum, Math.max(280, width));
     document.documentElement.style.setProperty('--files-width', `${value}px`);
     panelResizer.setAttribute('aria-valuenow', String(Math.round(value)));

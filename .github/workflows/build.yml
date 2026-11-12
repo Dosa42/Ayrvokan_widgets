@@ -50,6 +50,7 @@ jobs:
           "$RUNNER_TEMP/terminal-tests/bin/pip" install websockets==15.0.1
           "$RUNNER_TEMP/terminal-tests/bin/python" .github/scripts/test-terminal.py
           "$RUNNER_TEMP/terminal-tests/bin/python" .github/scripts/test-files.py
+          python3 .github/scripts/test-engine.py
           python3 .github/scripts/verify-runtime.py
 
       - name: Verify Java bootstrap and install the real rootfs in integration tests

@@ -44,6 +44,7 @@ public final class UbuntuRuntimeService extends Service {
     private boolean stopping;
     private TerminalServer web;
     private FileWorkspace filesWorkspace;
+    private MachineEngine engine;
 
     @Override
     public void onCreate() {
@@ -103,7 +104,11 @@ public final class UbuntuRuntimeService extends Service {
                 ProotCommand fileCommands = new ProotCommand(getFilesDir(), new File(getApplicationInfo().nativeLibraryDir));
                 filesWorkspace = new FileWorkspace(fileCommands::process, "/host-rootfs");
             }
-            if (web == null) web = new TerminalServer(8766, this::readAsset, browsers, filesWorkspace);
+            if (engine == null) {
+                ProotCommand execution = new ProotCommand(getFilesDir(), new File(getApplicationInfo().nativeLibraryDir));
+                engine = new MachineEngine(new File(getFilesDir(), "ubuntu-engine"), execution::process);
+            }
+            if (web == null) web = new TerminalServer(8766, this::readAsset, browsers, filesWorkspace, engine::request);
             File files = getFilesDir();
             if (!UbuntuImage.ready(files)) throw new IOException("Ubuntu Bare is nog niet geïnstalleerd");
             ProotCommand proot = new ProotCommand(files, new File(getApplicationInfo().nativeLibraryDir));
@@ -230,6 +235,7 @@ public final class UbuntuRuntimeService extends Service {
         stopping = true;
         if (web != null) web.close();
         if (filesWorkspace != null) filesWorkspace.close();
+        if (engine != null) engine.close();
         browsers.close();
         if (sshSession != null) sshSession.stop();
         stopSelf();
@@ -241,6 +247,7 @@ public final class UbuntuRuntimeService extends Service {
             stopping = true;
             if (web != null) web.close();
             if (filesWorkspace != null) filesWorkspace.close();
+            if (engine != null) engine.close();
             browsers.close();
             if (sshSession != null) {
                 sshSession.stop();

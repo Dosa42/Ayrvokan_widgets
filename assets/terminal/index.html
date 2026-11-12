@@ -12,6 +12,7 @@
 <script defer src="/terminal/addon-fit.js"></script>
 <script defer src="/terminal/app.js"></script>
 <script defer src="/terminal/files.js"></script>
+<script defer src="/terminal/control.js"></script>
 </head>
 <body>
 <header>
@@ -39,6 +40,34 @@
 <span id="session" aria-label="Actieve sessie"></span>
 </footer>
 </section>
+<aside id="operations" aria-label="Runtime en machine-engine">
+<div class="operations-title"><h2>Runtime</h2><span id="control-freshness">Verbinden…</span></div>
+<section class="runtime-section" aria-labelledby="server-heading">
+<h3 id="server-heading">Server <span id="server-health">laden</span></h3>
+<dl class="telemetry"><dt>HTTP / basis-URL</dt><dd id="server-url">—</dd><dt>SSH</dt><dd id="server-ssh">—</dd><dt>WebSocket</dt><dd id="server-ws">—</dd><dt>Bash-sessies</dt><dd id="server-sessions">—</dd></dl>
+</section>
+<section class="runtime-section" aria-labelledby="proxy-heading">
+<h3 id="proxy-heading">CLIProxyAPI <span>configuratie volgt</span></h3>
+<dl class="telemetry"><dt>Proxy-URL / health</dt><dd>Niet ingesteld</dd><dt>Model</dt><dd id="engine-model">Niet ingesteld</dd><dt>Reasoning effort</dt><dd id="engine-reasoning">Niet ingesteld</dd><dt>Catalogus / auto-debug</dt><dd>Nog niet gekoppeld</dd></dl>
+</section>
+<div class="machine-columns">
+<section class="engine-section" id="engine-view" aria-labelledby="engine-heading">
+<div class="engine-heading"><h3 id="engine-heading">Ubuntu engine</h3><span id="engine-state">wacht</span></div>
+<p class="engine-subtitle">Machine-uitvoer</p>
+<dl class="engine-metadata"><dt>Mode</dt><dd id="engine-mode">mechanical</dd><dt>AI-adapter</dt><dd>Nog niet gekoppeld</dd></dl>
+<details class="engine-contract"><summary>Harnessmetadata</summary><dl class="engine-metadata"><dt>Skills</dt><dd id="engine-skills">—</dd><dt>Hooks</dt><dd id="engine-hooks">—</dd><dt>Instructions</dt><dd id="engine-instructions">—</dd></dl><p>Metadata opgeslagen; harness wordt later gebouwd.</p></details>
+<label class="output-label" id="engine-output-label">stdout / stderr · laatste opdracht</label>
+<pre id="engine-output" role="log" aria-labelledby="engine-output-label" aria-live="off" tabindex="0">Nog geen machine-opdrachten ontvangen.</pre>
+</section>
+<section class="controller-section" aria-labelledby="controller-heading">
+<h3 id="controller-heading">Codex-controller</h3><p class="controller-subtitle">Ontvangen opdrachten</p>
+<p id="controller-receipt">Nog geen opdracht ontvangen.</p>
+<div class="checklist-heading">Checklist <span>machine-status</span></div>
+<ol id="engine-orders"><li class="empty-orders">Nog geen opdrachten.</li></ol>
+</section>
+</div>
+<p id="control-error" role="status" aria-live="polite"></p>
+</aside>
 <div id="panel-resizer" role="separator" aria-label="Breedte bestandenpaneel" aria-orientation="vertical" tabindex="0" aria-valuemin="280" aria-valuemax="760" aria-valuenow="390"></div>
 <aside id="files" aria-label="Android en Ubuntu bestanden">
 <div class="files-title"><h2>Bestanden</h2><span class="live-indicator">Live</span></div>
